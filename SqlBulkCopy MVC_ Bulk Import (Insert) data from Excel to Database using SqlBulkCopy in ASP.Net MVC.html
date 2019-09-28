@@ -1,0 +1,1274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0136)https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__aspsnippets_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/client.js.download" async="" type="text/javascript"></script><script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/client.js.download" async="" type="text/javascript"></script><script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/cb=gapi.loaded_2" async=""></script><script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/cb=gapi.loaded_1" async=""></script><script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/cb=gapi(2).loaded_0" async=""></script><script type="text/javascript" async="" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/analytics.js.download"></script><script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/client.js.download" async="" type="text/javascript"></script><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><style class="vjs-styles-dimensions">
+      .vdo_ai_6107914-dimensions {
+        width: 419px;
+        height: 236px;
+      }
+
+      .vdo_ai_6107914-dimensions.vjs-fluid {
+        padding-top: 56.25%;
+      }
+    </style><style id="stndz-style"></style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC</title>
+<meta http-equiv="Description" name="description" content="Here Mudassar Ahmed Khan has explained with an example, how to use the SqlBulkCopy class in ASP.Net MVC Razor.
+This article will illustrate how to import (insert) data from Excel file into SQL Server database table using SqlBulkCopy in ASP.Net MVC Razor.
+The uploaded Excel file data will be read using OLEDB library and the read data will be inserted into SQL Server database table using SqlBulkCopy.
+SqlBulkCopy class as the name suggests does bulk insert from one source to another and hence all rows from the Excel sheet can be easily read and inserted into SQL Server database table using the SqlBulkCopy class.
+TAGs: ASP.Net, Excel, SQL Server, SqlBulkCopy, MVC">
+<meta name="og:site_name" property="og:site_name" content="ASPSnippets">
+<meta name="og:title" property="og:title" content="SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC">
+<meta name="og:description" property="og:description" content="Here Mudassar Ahmed Khan has explained with an example, how to use the SqlBulkCopy class in ASP.Net MVC Razor.
+This article will illustrate how to import (insert) data from Excel file into SQL Server database table using SqlBulkCopy in ASP.Net MVC Razor.
+The uploaded Excel file data will be read using OLEDB library and the read data will be inserted into SQL Server database table using SqlBulkCopy.
+SqlBulkCopy class as the name suggests does bulk insert from one source to another and hence all rows from the Excel sheet can be easily read and inserted into SQL Server database table using the SqlBulkCopy class.
+TAGs: ASP.Net, Excel, SQL Server, SqlBulkCopy, MVC">
+<meta name="og:image" property="og:image" content="https://www.aspsnippets.com/images/Metro/blue/ASP.png">
+<meta name="og:url" property="og:url" content="https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx">
+<meta name="og:type" property="og:type" content="Articles">
+<meta name="twitter:card" content="Here Mudassar Ahmed Khan has explained with an example, how to use the SqlBulkCopy class in ASP.Net MVC Razor.
+This article will illustrate how to import (insert) data from Excel file into SQL Server database table using SqlBulkCopy in ASP.Net MVC Razor.
+The uploaded Excel file data will be read using OLEDB library and the read data will be inserted into SQL Server database table using SqlBulkCopy.
+SqlBulkCopy class as the name suggests does bulk insert from one source to another and hence all rows from the Excel sheet can be easily read and inserted into SQL Server database table using the SqlBulkCopy class.
+TAGs: ASP.Net, Excel, SQL Server, SqlBulkCopy, MVC">
+<meta name="twitter:site" content="https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx">
+<meta name="twitter:title" content="SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC">
+<meta name="twitter:description" content="Here Mudassar Ahmed Khan has explained with an example, how to use the SqlBulkCopy class in ASP.Net MVC Razor.
+This article will illustrate how to import (insert) data from Excel file into SQL Server database table using SqlBulkCopy in ASP.Net MVC Razor.
+The uploaded Excel file data will be read using OLEDB library and the read data will be inserted into SQL Server database table using SqlBulkCopy.
+SqlBulkCopy class as the name suggests does bulk insert from one source to another and hence all rows from the Excel sheet can be easily read and inserted into SQL Server database table using the SqlBulkCopy class.
+TAGs: ASP.Net, Excel, SQL Server, SqlBulkCopy, MVC">
+<meta name="twitter:image" content="https://www.aspsnippets.com/images/Metro/blue/ASP.png">
+<meta property="fb:app_id" content="306994206006035">
+<link rel="canonical" href="https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx">
+<link rel="shortcut icon" type="image/png" href="https://www.aspsnippets.com/ASPSmall.png">
+<meta content="Mudassar Ahmed Khan" name="author">
+<meta content="index, follow" name="robots">
+<meta content="index, follow" name="Googlebot">
+<meta http-equiv="content-language" name="content-language" content="en-us">
+<link rel="search" type="application/opensearchdescription+xml" title="ASPSnippets" href="https://www.aspsnippets.com/opensearch.xml">
+<link rel="alternate" type="application/rss+xml" title="SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC" href="https://www.aspsnippets.com/RSS.ashx">
+<script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/sdk.js.download" async="" crossorigin="anonymous"></script><script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "Article",
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx"
+},
+"headline": "SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC",
+"image": [
+"https://www.aspsnippets.com/Handlers/DownloadFile.ashx?File=f18ac914-bc9b-437a-88e2-bd640ce05282.png"
+],
+"datePublished": "2017-12-28T05:48:51.0000000",
+"dateModified": "2017-12-28T05:48:51.0000000",
+"author": {
+"@type": "Person",
+"name": "Mudassar Khan"
+},
+"publisher": {
+"@type": "Organization",
+"name": "ASPSnippets.com",
+"logo": {
+"@type": "ImageObject",
+"url": "https://www.aspsnippets.com/images/Metro/blue/ASP.png"
+}
+},
+"description": "Here Mudassar Ahmed Khan has explained with an example how to use the SqlBulkCopy class in ASPNet MVC Razor  This article will illustrate how to import insert data from Excel file into SQL Server database table using SqlBulkCopy in ASPNet MVC Razor  The uploaded Excel file data will be read using OLEDB library and the read data will be inserted into SQL Server database table using SqlBulkCopy  SqlBulkCopy class as the name suggests does bulk insert from one source to another and hence all rows from the Excel sheet can be easily read and inserted into SQL Server database table using the SqlBulkCopy class TAGs: ASP.Net, Excel, SQL Server, SqlBulkCopy, MVC"
+}
+</script>
+<script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/jquery.min.js.download"></script><script defer="" async="" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/vdo.ai.js.download"></script><script type="text/javascript" async="" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/a.min.js.download"></script><script id="_bsa_srv-CK7DE2JU_0" type="text/javascript" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/CK7DE2JU.json"></script><link id="_vdo_ads_css_5654_" rel="stylesheet" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/vdo.min.css"><script async="" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/js"></script><link rel="stylesheet" type="text/css" media="screen" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/later.css"><link rel="stylesheet" type="text/css" media="screen" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/font-awesome.min.css"><link rel="stylesheet" type="text/css" media="screen" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/jqueryui.min.css"><script type="text/javascript" async="" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/a.min.js(1).download"></script><script async="" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pipeline.js.download"></script><link rel="preload" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/f.txt" as="script"><script type="text/javascript" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/f.txt"></script><script id="_bsa_srv-CK7DE5QU_1" type="text/javascript" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/CK7DE5QU.json"></script><script charset="utf-8" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/button.d941c9a422e2e3faf474b82a1f39e936.js.download"></script><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0} </style><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+<body style="margin: 0; padding: 0" data-gr-c-s-loaded="true">
+<style type="text/css">.leaderboard_ad, .leaderboard_ad .dvAdContainer{background-color:#0090CB !important}</style>
+<script type="text/javascript">
+var Browser = "Other";
+function CheckBrowser() {
+if (!!navigator.userAgent.match(/Trident\/7\./) && navigator.userAgent.indexOf("Edge") == -1) {
+Browser = "IE";
+return;
+}
+if (navigator.userAgent.indexOf("Edge") != -1) {
+Browser = "Edge";
+return;
+}
+};
+CheckBrowser();
+var PageName = "";
+var scriptLoaded = false;
+var isMobile;
+var elem = document.createElement('script');
+elem.onload = function () {
+$.getScript('https://www.aspsnippets.com/scripts/min141.js?4_06_2019_556', function () {
+scriptLoaded = true;
+//document.getElementById("cover").style.display = "none";
+LoadjQueryScripts();
+Load2();
+});
+};
+elem.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js';
+document.getElementsByTagName('head')[0].appendChild(elem);
+</script>
+<link rel="stylesheet" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/bootstrap.min.css" media="screen">
+<link rel="stylesheet" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/override.css">
+<!--[if gt IE 8]><!-->
+<link rel="stylesheet" media="all and (min-width: 1024px)" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/Above_1024.css">
+<link rel="stylesheet" media="all and (max-width: 767px)" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/below_767.css">
+<!--<![endif]-->
+<!--[if !IE]><!-->
+<link rel="stylesheet" media="all and (min-width: 1024px)" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/Above_1024.css">
+<link rel="stylesheet" media="all and (max-width: 767px)" href="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/below_767.css">
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" href='/Bootstrap-3.0/css/IE.css?01_07_16_05_50' />
+<![endif]-->
+
+<form name="aspnetForm" method="post" action="https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="">
+</div>
+<div class="page-header-wrap">
+<div class="page-header">
+<div class="logo">
+<div class="heading-sep hidden-xs">
+</div>
+<a href="https://www.aspsnippets.com/" target="_blank">
+<img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/ASP.png" alt="ASP" class="asp">
+<img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/Logo.png" alt="ASP Snippets" class="aspsnippets">
+</a>
+</div>
+<div class="leaderboard_ad hidden-xs">
+<div id="ctl00_ucAds738x90_adContainer" style="height:90px;width:728px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="728x90">    </div>
+</div>
+</div>
+<button type="button" class="navbar-toggle" data-target=".navbar-responsive-collapse">
+<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+</button>
+</div>
+<div class="navbar-wrapper">
+<div class="navbar-header">
+</div>
+<div class="navbar-collapse collapse navbar-responsive-collapse">
+<div class="row">
+<div class="media hidden-xs" style="background: #fff; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd;">
+<div class="pull-left">
+<div id="site-nav" class=" col-md-6 site-nav  col-last col-xs-12 hidden-xs">
+<ul class="nav navbar-nav">
+<li class=""><a title="Home Page: www.aspsnippets.com" href="https://www.aspsnippets.com/Home.aspx">
+<span class="fa fa-home fa-fw"></span>Home</a></li>
+<li class="dropdown  hidden-xs">
+<a title="Category Menu" id="lnkCategories" class="dropdown-toggle" href="https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx#">
+Categories
+<i class="sub-indicator fa fa-chevron-circle-down fa-fw text-muted"></i><b class="caret" style="display: none"></b></a>
+<ul class="dropdown-menu menu" id="ulCategoryMenu">
+<li class="grid-demo" style="padding: 5px">
+<div class="row" id="dvMenuCategoryMenu">
+<div class="col-md-3"><a title="Category: ASP.Net" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ASP.Net.aspx">ASP.Net</a></div><div class="col-md-3"><a title="Category: C#.Net" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/C.Net.aspx">C#.Net</a></div><div class="col-md-3"><a title="Category: JavaScript" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/JavaScript.aspx">JavaScript</a></div><div class="col-md-3"><a title="Category: ADO.Net" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ADO.Net.aspx">ADO.Net</a></div><div class="col-md-3"><a title="Category: Excel" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Excel.aspx">Excel</a></div><div class="col-md-3"><a title="Category: AJAX" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/AJAX.aspx">AJAX</a></div><div class="col-md-3"><a title="Category: VB.Net" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/VB.Net.aspx">VB.Net</a></div><div class="col-md-3"><a title="Category: SQL Server" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SQLServer.aspx">SQL Server</a></div><div class="col-md-3"><a title="Category: GridView" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/GridView.aspx">GridView</a></div><div class="col-md-3"><a title="Category: Issues and Exceptions" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/IssuesandExceptions.aspx">Issues and Exceptions</a></div><div class="col-md-3"><a title="Category: Silverlight" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Silverlight.aspx">Silverlight</a></div><div class="col-md-3"><a title="Category: Rich Text Editor" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/RichTextEditor.aspx">Rich Text Editor</a></div><div class="col-md-3"><a title="Category: jQuery" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/jQuery.aspx">jQuery</a></div><div class="col-md-3"><a title="Category: DataList" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DataList.aspx">DataList</a></div><div class="col-md-3"><a title="Category: Snippets" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Snippets.aspx">Snippets</a></div><div class="col-md-3"><a title="Category: XML" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/XML.aspx">XML</a></div><div class="col-md-3"><a title="Category: New Features" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/NewFeatures.aspx">New Features</a></div><div class="col-md-3"><a title="Category: .Net 4.0" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/.Net4.0.aspx">.Net 4.0</a></div><div class="col-md-3"><a title="Category: TreeView" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/TreeView.aspx">TreeView</a></div><div class="col-md-3"><a title="Category: AJAX Control Toolkit" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/AJAXControlToolkit.aspx">AJAX Control Toolkit</a></div><div class="col-md-3"><a title="Category: jQuery Plugins" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/jQueryPlugins.aspx">jQuery Plugins</a></div><div class="col-md-3"><a title="Category: Third Party Controls" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ThirdPartyControls.aspx">Third Party Controls</a></div><div class="col-md-3"><a title="Category: ASP.Net Validators" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ASP.NetValidators.aspx">ASP.Net Validators</a></div><div class="col-md-3"><a title="Category: WCF" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WCF.aspx">WCF</a></div><div class="col-md-3"><a title="Category: Repeater" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Repeater.aspx">Repeater</a></div><div class="col-md-3"><a title="Category: Regular Expressions" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/RegularExpressions.aspx">Regular Expressions</a></div><div class="col-md-3"><a title="Category: Yahoo API" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/YahooAPI.aspx">Yahoo API</a></div><div class="col-md-3"><a title="Category: iTextSharp" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/iTextSharp.aspx">iTextSharp</a></div><div class="col-md-3"><a title="Category: FaceBook" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/FaceBook.aspx">FaceBook</a></div><div class="col-md-3"><a title="Category: Charts" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Charts.aspx">Charts</a></div><div class="col-md-3"><a title="Category: ListView" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ListView.aspx">ListView</a></div><div class="col-md-3"><a title="Category: Tweeter" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Tweeter.aspx">Tweeter</a></div><div class="col-md-3"><a title="Category: Google" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Google.aspx">Google</a></div><div class="col-md-3"><a title="Category: CSS" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/CSS.aspx">CSS</a></div><div class="col-md-3"><a title="Category: SMS" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SMS.aspx">SMS</a></div><div class="col-md-3"><a title="Category: DotNetZip" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DotNetZip.aspx">DotNetZip</a></div><div class="col-md-3"><a title="Category: Crystal Reports" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/CrystalReports.aspx">Crystal Reports</a></div><div class="col-md-3"><a title="Category: Entity Framework" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/EntityFramework.aspx">Entity Framework</a></div><div class="col-md-3"><a title="Category: HyperLink" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/HyperLink.aspx">HyperLink</a></div><div class="col-md-3"><a title="Category: RDLC Report" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/RDLCReport.aspx">RDLC Report</a></div><div class="col-md-3"><a title="Category: SqlDataSource" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SqlDataSource.aspx">SqlDataSource</a></div><div class="col-md-3"><a title="Category: Menu" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Menu.aspx">Menu</a></div><div class="col-md-3"><a title="Category: YouTube" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/YouTube.aspx">YouTube</a></div><div class="col-md-3"><a title="Category: Twitter" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Twitter.aspx">Twitter</a></div><div class="col-md-3"><a title="Category: HTML" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/HTML.aspx">HTML</a></div><div class="col-md-3"><a title="Category: XmlDataSource" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/XmlDataSource.aspx">XmlDataSource</a></div><div class="col-md-3"><a title="Category: ListBox" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ListBox.aspx">ListBox</a></div><div class="col-md-3"><a title="Category: Tips" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Tips.aspx">Tips</a></div><div class="col-md-3"><a title="Category: DataGridView" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DataGridView.aspx">DataGridView</a></div><div class="col-md-3"><a title="Category: Cryptography" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Cryptography.aspx">Cryptography</a></div><div class="col-md-3"><a title="Category: Windows Forms" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WindowsForms.aspx">Windows Forms</a></div><div class="col-md-3"><a title="Category: LinkedIn" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/LinkedIn.aspx">LinkedIn</a></div><div class="col-md-3"><a title="Category: WebUserControl" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WebUserControl.aspx">WebUserControl</a></div><div class="col-md-3"><a title="Category: RSS Feeds" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/RSSFeeds.aspx">RSS Feeds</a></div><div class="col-md-3"><a title="Category: HTML5" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/HTML5.aspx">HTML5</a></div><div class="col-md-3"><a title="Category: Sitemap" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Sitemap.aspx">Sitemap</a></div><div class="col-md-3"><a title="Category: IIS" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/IIS.aspx">IIS</a></div><div class="col-md-3"><a title="Category: LINQ" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/LINQ.aspx">LINQ</a></div><div class="col-md-3"><a title="Category: DataPager" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DataPager.aspx">DataPager</a></div><div class="col-md-3"><a title="Category: URL Routing" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/URLRouting.aspx">URL Routing</a></div><div class="col-md-3"><a title="Category: SqlBulkCopy" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SqlBulkCopy.aspx">SqlBulkCopy</a></div><div class="col-md-3"><a title="Category: OCR" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/OCR.aspx">OCR</a></div><div class="col-md-3"><a title="Category: ASP.Net 4.5" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ASP.Net4.5.aspx">ASP.Net 4.5</a></div><div class="col-md-3"><a title="Category: Master Pages" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/MasterPages.aspx">Master Pages</a></div><div class="col-md-3"><a title="Category: MySQL" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/MySQL.aspx">MySQL</a></div><div class="col-md-3"><a title="Category: CSV" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/CSV.aspx">CSV</a></div><div class="col-md-3"><a title="Category: Stored Procedures" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/StoredProcedures.aspx">Stored Procedures</a></div><div class="col-md-3"><a title="Category: JSON" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/JSON.aspx">JSON</a></div><div class="col-md-3"><a title="Category: Web Services" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WebServices.aspx">Web Services</a></div><div class="col-md-3"><a title="Category: Bootstrap" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Bootstrap.aspx">Bootstrap</a></div><div class="col-md-3"><a title="Category: Windows Service" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WindowsService.aspx">Windows Service</a></div><div class="col-md-3"><a title="Category: DataTable" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DataTable.aspx">DataTable</a></div><div class="col-md-3"><a title="Category: App.Config" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/App.Config.aspx">App.Config</a></div><div class="col-md-3"><a title="Category: Visual Studio" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/VisualStudio.aspx">Visual Studio</a></div><div class="col-md-3"><a title="Category: RadioButton" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/RadioButton.aspx">RadioButton</a></div><div class="col-md-3"><a title="Category: CheckBox" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/CheckBox.aspx">CheckBox</a></div><div class="col-md-3"><a title="Category: Generic Handler" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/GenericHandler.aspx">Generic Handler</a></div><div class="col-md-3"><a title="Category: DropDownList" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DropDownList.aspx">DropDownList</a></div><div class="col-md-3"><a title="Category: FileUpload" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/FileUpload.aspx">FileUpload</a></div><div class="col-md-3"><a title="Category: RadioButtonList" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/RadioButtonList.aspx">RadioButtonList</a></div><div class="col-md-3"><a title="Category: CheckBoxList" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/CheckBoxList.aspx">CheckBoxList</a></div><div class="col-md-3"><a title="Category: Flash" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Flash.aspx">Flash</a></div><div class="col-md-3"><a title="Category: HtmlEditorExtender" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/HtmlEditorExtender.aspx">HtmlEditorExtender</a></div><div class="col-md-3"><a title="Category: Div" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Div.aspx">Div</a></div><div class="col-md-3"><a title="Category: Table" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Table.aspx">Table</a></div><div class="col-md-3"><a title="Category: AngularJS" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/AngularJS.aspx">AngularJS</a></div><div class="col-md-3"><a title="Category: DataReader" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DataReader.aspx">DataReader</a></div><div class="col-md-3"><a title="Category: DataSet" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DataSet.aspx">DataSet</a></div><div class="col-md-3"><a title="Category: Console Applications" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ConsoleApplications.aspx">Console Applications</a></div><div class="col-md-3"><a title="Category: FTP" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/FTP.aspx">FTP</a></div><div class="col-md-3"><a title="Category: DetailsView" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DetailsView.aspx">DetailsView</a></div><div class="col-md-3"><a title="Category: Password TextBox" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/PasswordTextBox.aspx">Password TextBox</a></div><div class="col-md-3"><a title="Category: Enum" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Enum.aspx">Enum</a></div><div class="col-md-3"><a title="Category: ComboBox" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ComboBox.aspx">ComboBox</a></div><div class="col-md-3"><a title="Category: Sponsored" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Sponsored.aspx">Sponsored</a></div><div class="col-md-3"><a title="Category: SqlDataAdapter" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SqlDataAdapter.aspx">SqlDataAdapter</a></div><div class="col-md-3"><a title="Category: OpenXml" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/OpenXml.aspx">OpenXml</a></div><div class="col-md-3"><a title="Category: ClosedXml" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ClosedXml.aspx">ClosedXml</a></div><div class="col-md-3"><a title="Category: SiteMapPath" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SiteMapPath.aspx">SiteMapPath</a></div><div class="col-md-3"><a title="Category: Arrays" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Arrays.aspx">Arrays</a></div><div class="col-md-3"><a title="Category: FormView" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/FormView.aspx">FormView</a></div><div class="col-md-3"><a title="Category: SqlTransaction" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SqlTransaction.aspx">SqlTransaction</a></div><div class="col-md-3"><a title="Category: Web.Config" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Web.Config.aspx">Web.Config</a></div><div class="col-md-3"><a title="Category: Cookies" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Cookies.aspx">Cookies</a></div><div class="col-md-3"><a title="Category: MVC" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/MVC.aspx">MVC</a></div><div class="col-md-3"><a title="Category: Data Annotation" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/DataAnnotation.aspx">Data Annotation</a></div><div class="col-md-3"><a title="Category: Partial View" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/PartialView.aspx">Partial View</a></div><div class="col-md-3"><a title="Category: Web API" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WebAPI.aspx">Web API</a></div><div class="col-md-3"><a title="Category: Interview Questions" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/InterviewQuestions.aspx">Interview Questions</a></div><div class="col-md-3"><a title="Category: TextBox" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/TextBox.aspx">TextBox</a></div><div class="col-md-3"><a title="Category: SiteMapDataSource" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SiteMapDataSource.aspx">SiteMapDataSource</a></div><div class="col-md-3"><a title="Category: Word" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Word.aspx">Word</a></div><div class="col-md-3"><a title="Category: WebGrid" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WebGrid.aspx">WebGrid</a></div><div class="col-md-3"><a title="Category: PictureBox" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/PictureBox.aspx">PictureBox</a></div><div class="col-md-3"><a title="Category: CheckedListBox" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/CheckedListBox.aspx">CheckedListBox</a></div><div class="col-md-3"><a title="Category: Session" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Session.aspx">Session</a></div><div class="col-md-3"><a title="Category: SSRS Report" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/SSRSReport.aspx">SSRS Report</a></div><div class="col-md-3"><a title="Category: Calendar" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Calendar.aspx">Calendar</a></div><div class="col-md-3"><a title="Category: Email" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Email.aspx">Email</a></div><div class="col-md-3"><a title="Category: Validation" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Validation.aspx">Validation</a></div><div class="col-md-3"><a title="Category: ErrorProvider" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ErrorProvider.aspx">ErrorProvider</a></div><div class="col-md-3"><a title="Category: Button" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Button.aspx">Button</a></div><div class="col-md-3"><a title="Category: Form" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Form.aspx">Form</a></div><div class="col-md-3"><a title="Category: Mobile" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Mobile.aspx">Mobile</a></div><div class="col-md-3"><a title="Category: Audio (MP3)" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/AudioMP3.aspx">Audio (MP3)</a></div><div class="col-md-3"><a title="Category: Canvas" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Canvas.aspx">Canvas</a></div><div class="col-md-3"><a title="Category: ViewState" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/ViewState.aspx">ViewState</a></div><div class="col-md-3"><a title="Category: Forms Authentication" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/FormsAuthentication.aspx">Forms Authentication</a></div><div class="col-md-3"><a title="Category: PDF" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/PDF.aspx">PDF</a></div><div class="col-md-3"><a title="Category: TextArea" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/TextArea.aspx">TextArea</a></div><div class="col-md-3"><a title="Category: UpdatePanel" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/UpdatePanel.aspx">UpdatePanel</a></div><div class="col-md-3"><a title="Category: TinyMCE" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/TinyMCE.aspx">TinyMCE</a></div><div class="col-md-3"><a title="Category: FormData" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/FormData.aspx">FormData</a></div><div class="col-md-3"><a title="Category: Gmail" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Gmail.aspx">Gmail</a></div><div class="col-md-3"><a title="Category: Model" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Model.aspx">Model</a></div><div class="col-md-3"><a title="Category: Grid" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Grid.aspx">Grid</a></div><div class="col-md-3"><a title="Category: XmlHttp" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/XmlHttp.aspx">XmlHttp</a></div><div class="col-md-3"><a title="Category: Triggers" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Triggers.aspx">Triggers</a></div><div class="col-md-3"><a title="Category: OLEDB" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/OLEDB.aspx">OLEDB</a></div><div class="col-md-3"><a title="Category: Web Method" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/WebMethod.aspx">Web Method</a></div><div class="col-md-3"><a title="Category: LinkButton" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/LinkButton.aspx">LinkButton</a></div><div class="col-md-3"><a title="Category: Image" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Image.aspx">Image</a></div><div class="col-md-3"><a title="Category: Label" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Label.aspx">Label</a></div><div class="col-md-3"><a title="Category: Literal" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Literal.aspx">Literal</a></div><div class="col-md-3"><a title="Category: Encryption" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Encryption.aspx">Encryption</a></div><div class="col-md-3"><a title="Category: Panel" class="btn btn-xs btn-link" href="https://www.aspsnippets.com/Categories/Panel.aspx">Panel</a></div></div>
+</li>
+</ul>
+</li>
+<li><a title="Forums: Ask question related to this Article." href="http://www.aspforums.net/Forums/" target="_blank" rel="nofollow">
+Forums</a></li>
+<li class=""><a title="Contact: Contact us at www.aspsnippets.com" href="https://www.aspsnippets.com/Contact.aspx" class="last-menu1">
+Contact</a></li>
+<li style="overflow: hidden">
+
+</li>
+</ul>
+</div>
+</div>
+<div class="media-body">
+<div class="media">
+<div class="pull-right" style="padding-right: 10px; margin-left: 5px;">
+<button type="button" class="search-submit btn btn-red btn-sm pull-right" style="padding: 5px 10px;
+margin: 4px 0" onclick="return Search()">
+<span class="fa fa-search fa-fw" style="font-size: inherit;"></span>Search</button>
+</div>
+<div class="media-body">
+<input id="txtSearch" type="text" value="" class="search-field form-control pull-right col-last" placeholder="Eg. Send Email ASP.Net" style="margin-top: 4px; height: 31px; background-color:#ddd;max-width:700px">
+</div>
+</div>
+</div>
+</div>
+<div class="site-search  col-md-6  hidden-xs">
+<div class="dvSearch-field">
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<!-- /.nav-collapse -->
+<!-- /.container -->
+<div id="dvMenu" style="display: none; position: absolute; left: 0px; top: 0px; z-index: 10000;">
+</div>
+</div>
+<div id="main" class="site-main clearfix">
+<div class="content-area">
+<div class="row">
+<div class="col-md-12">
+<div id="article">
+<div class="media article-media">
+
+<div class="media-body article-media-body">
+<div id="ctl00_contentplaceholder1_dvArticleSummary" class="article_summary article_summary_without_text_ad">
+<div class="media">
+<div class="pull-right hidden-xs">
+</div>
+<div class="media-body">
+<h1 class="header">
+<a href="https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx" title="SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC&#39;a">
+SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC</a>
+</h1>
+</div>
+</div>
+<div class="info">
+<div class="pull-left mobile-float-none">
+<div>
+<span class="fa fa-calendar fa-fw published_date"></span>
+28 Dec 2017
+&nbsp;<span class="fa fa-clock-o fa-fw modified_date"></span>
+28 Dec 2017
+&nbsp;<span class="fa fa-user fa"> </span><a class="author" rel="author" href="https://www.aspsnippets.com/Authors/Mudassar-Khan.aspx" title="Mudassar Khan">
+Mudassar Khan</a>
+<span class="fa fa-comments fa-fw"></span><a href="https://www.aspsnippets.com/Articles/SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx#comments">
+0</a>
+Comments
+<span class="fa fa-eye fa-fw"></span>
+8125&nbsp;Views
+</div>
+<div>
+<span class="fa fa-tags fa-fw"></span>
+<span class="categories"><a title="ASP.Net" href="https://www.aspsnippets.com/Categories/ASP.Net.aspx">ASP.Net</a>&nbsp;&nbsp;<a title="Excel" href="https://www.aspsnippets.com/Categories/Excel.aspx">Excel</a>&nbsp;&nbsp;<a title="SQL Server" href="https://www.aspsnippets.com/Categories/SQL-Server.aspx">SQL Server</a>&nbsp;&nbsp;<a title="SqlBulkCopy" href="https://www.aspsnippets.com/Categories/SqlBulkCopy.aspx">SqlBulkCopy</a>&nbsp;&nbsp;<a title="MVC" href="https://www.aspsnippets.com/Categories/MVC.aspx">MVC</a>
+</span>
+</div>
+</div>
+<div class="pull-right hidden-xs">
+<div>
+
+<div class="hidden-xs">
+<div class="SocialButtonWrap" style="position: relative">
+<div id="___ytsubscribe_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 116px; height: 24px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 116px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1569702752635" name="I0_1569702752635" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/subscribe_embed.html" data-gapiattached="true"></iframe></div>     
+</div>
+<div class="SocialButtonWrap">
+<div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/ASPSnippets-306994206006035/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=137087399669781&amp;container_width=0&amp;href=https%3A%2F%2Fwww.facebook.com%2FASPSnippets-306994206006035%2F&amp;layout=button_count&amp;locale=en_GB&amp;sdk=joey&amp;share=false&amp;show_faces=false&amp;size=large"><span style="vertical-align: bottom; width: 90px; height: 28px;"><iframe name="f2148b3719a6cfc" width="1000px" height="1000px" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/like.html" style="border: none; visibility: visible; width: 90px; height: 28px;" class=""></iframe></span></div>
+</div>        
+<div class="SocialButtonWrap GooglePlusButtonWrap" style="position: relative; top: 3px;">
+<div id="___follow_0" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I2_1569702752653" name="I2_1569702752653" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/follow.html" data-gapiattached="true"></iframe></div><div class="g-follow" data-annotation="bubble" data-height="24" data-href="//plus.google.com/u/0/110371172807820981480" data-rel="publisher" data-gapiscan="true" data-onload="true" data-gapistub="true">
+</div>
+</div>
+<div class="SocialButtonWrap">
+<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 172px; height: 28px;" title="Twitter Follow Button" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/follow_button.d6364fae9340b0be5f13818370141fd0.en.html" data-screen-name="ASPSnippets"></iframe>
+</div>
+<div class="SocialButtonWrap rssButtonWrap" style="position: relative; top: 4px;">
+<a href="https://www.aspsnippets.com/Rss.ashx" target="_blank" class="SocialLink rss" data-container="body" data-toggle="popover" data-placement="top" data-content="Subscribe to RSS feed." data-original-title="" title=""><span class="fa fa-rss-square fa-fw"></span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="media">
+<div class="pull-right hidden-xs">
+<div id="ctl00_contentplaceholder1_ucAds336x280_adContainer" style="height:250px;width:300px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="300x250">    </div>
+</div>
+</div>
+<div class="pull-right hidden-xs">
+<div id="ctl00_contentplaceholder1_Ads8_adContainer" style="height:250px;width:300px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="300x250">    </div>
+</div>
+</div>
+
+<div id="dvArticleSummaryWrap" class="media-body">
+<div class="abstract pull-left">
+<h2>
+Here Mudassar Ahmed Khan has explained with an example, how to use the SqlBulkCopy class in ASP.Net MVC Razor.<br><br>This article will illustrate how to import (insert) data from Excel file into SQL Server database table using SqlBulkCopy in ASP.Net MVC Razor.<br><br>The uploaded Excel file data will be read using OLEDB library and the read data will be inserted into SQL Server database table using SqlBulkCopy.<br><br>SqlBulkCopy class as the name suggests does bulk insert from one source to another and hence all rows from the Excel sheet can be easily read and inserted into SQL Server database table using the SqlBulkCopy class.</h2>
+</div>
+<div class="article-buttons-text-ad">
+<a class="btn btn-pink" href="javascript:;"><i class="fa fa-cloud-download fa-fw"></i> Download</a>
+<a class="btn btn-success" style="" id="btnAdDP" rel="nofollow" target="_blank" href="https://www.aspsnippets.com/Redirect.aspx?AdId=10567&amp;RedirectUrl=https%3A%2F%2Fwww.e-iceblue.com%2FIntroduce%2Fspire-office-for-net-free.html%3Faff_id%3D91">
+Download Free Files API</a>
+<div id="dvArticleTextAd">
+<div id="ctl00_contentplaceholder1_Ads18_adContainer" style="clear: both">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn btn-success pull-left" style="display: none; margin-bottom: 10pt" id="btnAdMB" rel="nofollow" target="_blank" href="https://www.aspsnippets.com/Redirect.aspx?AdId=10567&amp;RedirectUrl=https%3A%2F%2Fwww.e-iceblue.com%2FIntroduce%2Fspire-office-for-net-free.html%3Faff_id%3D91">
+Download Free Files API</a>
+<div class="article-buttons">
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-14 col-md-10 article-body-wrap">
+<div class="note-box">
+<div class="icon pull-left col-xs-2">
+<i class="fa fa-share-alt text-info" style="font-size: 30pt"></i>
+</div>
+<div class="right-content pull-left col-xs-10" style="padding-top: 5px;">
+<div style="margin: 5px 0 0 10px;">
+<a title="Share on FaceBook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.aspsnippets.com%2fArticles%2fSqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx">
+<img alt="Share on FaceBook" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/fb1.png"></a>  <a title="Share on Twitter" target="_blank" href="https://twitter.com/share?url=https%3a%2f%2fwww.aspsnippets.com%2fArticles%2fSqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx&amp;text=SqlBulkCopy%20MVC:%20Bulk%20Import%20(Insert)%20data%20from%20Excel%20to%20Database%20using%20SqlBulkCopy%20in%20ASP.Net%20MVC">
+<img alt="Share on Twitter" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/tw1.png"></a>
+<a title="Share on WhatsApp" class="visible-xs-inline" target="_blank" href="whatsapp://send?text=SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC%0A%0Ahttps://www.aspsnippets.com/a/2107">
+<img alt="Share on WhatsApp" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/wp.png"></a>
+</div>
+</div>
+</div>
+<div class="heading-sep">
+</div>
+<div id="body">
+<div class="article-body">
+<div id="vdo_ai_div" class="hidden-xs" style="float: right; max-width: 450px; max-height: 250px; width: 100%; height: 250px; background-color: transparent; margin: 0px 0px 5px 5px; display: block;"><div id="_vdo_ads_player_ai_705" class="vdo_content" style="display: none;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel.gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(1).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(2).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(3).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(4).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(5).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(6).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(7).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(8).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(9).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(10).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(11).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><div class="vdo-js vjs-default-skin vdo_ai_6107914-dimensions vjs-controls-disabled vjs-workinghover vjs-v6 vjs-has-started vjs-playing vjs-user-inactive" webkit-playsinline="webkit-playsinline" playsinline="playsinline" autoplay="true" muted="true" id="vdo_ai_6107914" lang="en-in" role="region" aria-label="Video Player"><video id="vdo_ai_6107914_html5_api" muted="muted" autoplay="" playsinline="playsinline" webkit-playsinline="webkit-playsinline" class="vjs-tech" tabindex="-1" preload="true" src="//s.vdo.ai/sample/35.mp4"></video><div class="vjs-poster vjs-hidden" tabindex="-1" aria-disabled="false"></div><div class="vjs-text-track-display" aria-live="off" aria-atomic="true"></div><div class="vjs-loading-spinner" dir="ltr"><span class="vjs-control-text">Video Player is loading.</span></div><button class="vjs-big-play-button" type="button" aria-live="polite" title="Play Video" aria-disabled="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Play Video</span></button><div class="vjs-control-bar" dir="ltr" role="group"><button class="vjs-play-control vjs-control vjs-button vjs-playing" type="button" aria-live="polite" title="Pause" aria-disabled="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Pause</span></button><div class="vjs-volume-panel vjs-control vjs-volume-panel-horizontal"><button class="vjs-mute-control vjs-control vjs-button vjs-vol-0" type="button" aria-live="polite" title="Unmute" aria-disabled="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Unmute</span></button><div class="vjs-volume-control vjs-control vjs-volume-horizontal"><div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Volume Level" aria-live="polite" aria-valuetext="0%"><div class="vjs-volume-level" style="width: 0%;"><span class="vjs-control-text"></span></div></div></div></div><div class="vjs-current-time vjs-time-control vjs-control"><div class="vjs-current-time-display" aria-live="off">0:53</div></div><div class="vjs-time-control vjs-time-divider"><div><span>/</span></div></div><div class="vjs-duration vjs-time-control vjs-control"><div class="vjs-duration-display" aria-live="off">0:58</div></div><div class="vjs-progress-control vjs-control"><div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="90.60" aria-valuemin="0" aria-valuemax="100" aria-label="Progress Bar" aria-valuetext="0:53 of 0:58"><div class="vjs-load-progress"><span class="vjs-control-text"><span>Loaded</span>: 0%</span></div><div class="vjs-mouse-display"><div class="vjs-time-tooltip"></div></div><div class="vjs-play-progress vjs-slider-bar" style="width: 90.6%;"><div class="vjs-time-tooltip">0:53</div><span class="vjs-control-text"><span>Progress</span>: 0%</span></div></div></div><div class="vjs-live-control vjs-control vjs-hidden"><div class="vjs-live-display" aria-live="off"><span class="vjs-control-text">Stream Type</span>LIVE</div></div><div class="vjs-remaining-time vjs-time-control vjs-control"><div class="vjs-remaining-time-display" aria-live="off">-0:05</div></div><div class="vjs-custom-control-spacer vjs-spacer ">&nbsp;</div><div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-live="polite" aria-disabled="false" title="Playback Rate" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Playback Rate</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"></ul></div><div class="vjs-playback-rate-value">1x</div></div><div class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-live="polite" aria-disabled="false" title="Chapters" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Chapters</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-title" tabindex="-1">Chapters</li></ul></div></div><div class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-live="polite" aria-disabled="false" title="Descriptions" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Descriptions</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">descriptions off</span><span class="vjs-control-text">, selected</span></li></ul></div></div><div class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-live="polite" aria-disabled="false" title="Subtitles" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Subtitles</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-texttrack-settings" tabindex="-1" role="menuitem" aria-live="polite" aria-disabled="false"><span class="vjs-menu-item-text">subtitles settings</span><span class="vjs-control-text">, opens subtitles settings dialog</span></li><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemcheckbox" aria-live="polite" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">subtitles off</span><span class="vjs-control-text">, selected</span></li></ul></div></div><div class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-live="polite" aria-disabled="false" title="Audio Track" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Audio Track</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"></ul></div></div><button class="vjs-fullscreen-control vjs-control vjs-button" type="button" aria-live="polite" title="Fullscreen" aria-disabled="false"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Fullscreen</span></button></div><div class="vjs-error-display vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="vdo_ai_6107914_component_7293_description" aria-hidden="true" aria-label="Modal Window" role="dialog"><p class="vjs-modal-dialog-description vjs-control-text" id="vdo_ai_6107914_component_7293_description">This is a modal window.</p><div class="vjs-modal-dialog-content" role="document"></div></div><div class="vjs-modal-dialog vjs-hidden  vjs-text-track-settings" tabindex="-1" aria-describedby="vdo_ai_6107914_component_7298_description" aria-hidden="true" aria-label="Caption Settings Dialog" role="dialog"><p class="vjs-modal-dialog-description vjs-control-text" id="vdo_ai_6107914_component_7298_description">Beginning of dialog window. Escape will cancel and close the window.</p><div class="vjs-modal-dialog-content" role="document"><div class="vjs-track-settings-colors"><fieldset class="vjs-fg-color vjs-track-setting"><legend id="captions-text-legend-vdo_ai_6107914_component_7298">Text</legend><label id="captions-foreground-color-vdo_ai_6107914_component_7298" class="vjs-label">Color</label><select aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298"><option id="captions-foreground-color-vdo_ai_6107914_component_7298-White" value="#FFF" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-White">White</option><option id="captions-foreground-color-vdo_ai_6107914_component_7298-Black" value="#000" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-Black">Black</option><option id="captions-foreground-color-vdo_ai_6107914_component_7298-Red" value="#F00" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-Red">Red</option><option id="captions-foreground-color-vdo_ai_6107914_component_7298-Green" value="#0F0" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-Green">Green</option><option id="captions-foreground-color-vdo_ai_6107914_component_7298-Blue" value="#00F" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-Blue">Blue</option><option id="captions-foreground-color-vdo_ai_6107914_component_7298-Yellow" value="#FF0" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-Yellow">Yellow</option><option id="captions-foreground-color-vdo_ai_6107914_component_7298-Magenta" value="#F0F" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-Magenta">Magenta</option><option id="captions-foreground-color-vdo_ai_6107914_component_7298-Cyan" value="#0FF" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298 captions-foreground-color-vdo_ai_6107914_component_7298-Cyan">Cyan</option></select><span class="vjs-text-opacity vjs-opacity"><label id="captions-foreground-opacity-vdo_ai_6107914_component_7298" class="vjs-label">Transparency</label><select aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-opacity-vdo_ai_6107914_component_7298"><option id="captions-foreground-opacity-vdo_ai_6107914_component_7298-Opaque" value="1" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-opacity-vdo_ai_6107914_component_7298 captions-foreground-opacity-vdo_ai_6107914_component_7298-Opaque">Opaque</option><option id="captions-foreground-opacity-vdo_ai_6107914_component_7298-Semi-Transparent" value="0.5" aria-labelledby="captions-text-legend-vdo_ai_6107914_component_7298 captions-foreground-opacity-vdo_ai_6107914_component_7298 captions-foreground-opacity-vdo_ai_6107914_component_7298-Semi-Transparent">Semi-Transparent</option></select></span></fieldset><fieldset class="vjs-bg-color vjs-track-setting"><legend id="captions-background-vdo_ai_6107914_component_7298">Background</legend><label id="captions-background-color-vdo_ai_6107914_component_7298" class="vjs-label">Color</label><select aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298"><option id="captions-background-color-vdo_ai_6107914_component_7298-Black" value="#000" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-Black">Black</option><option id="captions-background-color-vdo_ai_6107914_component_7298-White" value="#FFF" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-White">White</option><option id="captions-background-color-vdo_ai_6107914_component_7298-Red" value="#F00" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-Red">Red</option><option id="captions-background-color-vdo_ai_6107914_component_7298-Green" value="#0F0" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-Green">Green</option><option id="captions-background-color-vdo_ai_6107914_component_7298-Blue" value="#00F" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-Blue">Blue</option><option id="captions-background-color-vdo_ai_6107914_component_7298-Yellow" value="#FF0" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-Yellow">Yellow</option><option id="captions-background-color-vdo_ai_6107914_component_7298-Magenta" value="#F0F" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-Magenta">Magenta</option><option id="captions-background-color-vdo_ai_6107914_component_7298-Cyan" value="#0FF" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298 captions-background-color-vdo_ai_6107914_component_7298-Cyan">Cyan</option></select><span class="vjs-bg-opacity vjs-opacity"><label id="captions-background-opacity-vdo_ai_6107914_component_7298" class="vjs-label">Transparency</label><select aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-opacity-vdo_ai_6107914_component_7298"><option id="captions-background-opacity-vdo_ai_6107914_component_7298-Opaque" value="1" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-opacity-vdo_ai_6107914_component_7298 captions-background-opacity-vdo_ai_6107914_component_7298-Opaque">Opaque</option><option id="captions-background-opacity-vdo_ai_6107914_component_7298-Semi-Transparent" value="0.5" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-opacity-vdo_ai_6107914_component_7298 captions-background-opacity-vdo_ai_6107914_component_7298-Semi-Transparent">Semi-Transparent</option><option id="captions-background-opacity-vdo_ai_6107914_component_7298-Transparent" value="0" aria-labelledby="captions-background-vdo_ai_6107914_component_7298 captions-background-opacity-vdo_ai_6107914_component_7298 captions-background-opacity-vdo_ai_6107914_component_7298-Transparent">Transparent</option></select></span></fieldset><fieldset class="vjs-window-color vjs-track-setting"><legend id="captions-window-vdo_ai_6107914_component_7298">Window</legend><label id="captions-window-color-vdo_ai_6107914_component_7298" class="vjs-label">Color</label><select aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298"><option id="captions-window-color-vdo_ai_6107914_component_7298-Black" value="#000" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-Black">Black</option><option id="captions-window-color-vdo_ai_6107914_component_7298-White" value="#FFF" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-White">White</option><option id="captions-window-color-vdo_ai_6107914_component_7298-Red" value="#F00" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-Red">Red</option><option id="captions-window-color-vdo_ai_6107914_component_7298-Green" value="#0F0" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-Green">Green</option><option id="captions-window-color-vdo_ai_6107914_component_7298-Blue" value="#00F" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-Blue">Blue</option><option id="captions-window-color-vdo_ai_6107914_component_7298-Yellow" value="#FF0" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-Yellow">Yellow</option><option id="captions-window-color-vdo_ai_6107914_component_7298-Magenta" value="#F0F" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-Magenta">Magenta</option><option id="captions-window-color-vdo_ai_6107914_component_7298-Cyan" value="#0FF" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298 captions-window-color-vdo_ai_6107914_component_7298-Cyan">Cyan</option></select><span class="vjs-window-opacity vjs-opacity"><label id="captions-window-opacity-vdo_ai_6107914_component_7298" class="vjs-label">Transparency</label><select aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-opacity-vdo_ai_6107914_component_7298"><option id="captions-window-opacity-vdo_ai_6107914_component_7298-Transparent" value="0" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-opacity-vdo_ai_6107914_component_7298 captions-window-opacity-vdo_ai_6107914_component_7298-Transparent">Transparent</option><option id="captions-window-opacity-vdo_ai_6107914_component_7298-Semi-Transparent" value="0.5" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-opacity-vdo_ai_6107914_component_7298 captions-window-opacity-vdo_ai_6107914_component_7298-Semi-Transparent">Semi-Transparent</option><option id="captions-window-opacity-vdo_ai_6107914_component_7298-Opaque" value="1" aria-labelledby="captions-window-vdo_ai_6107914_component_7298 captions-window-opacity-vdo_ai_6107914_component_7298 captions-window-opacity-vdo_ai_6107914_component_7298-Opaque">Opaque</option></select></span></fieldset></div><div class="vjs-track-settings-font"><fieldset class="vjs-font-percent vjs-track-setting"><legend id="captions-font-size-vdo_ai_6107914_component_7298" class="">Font Size</legend><select aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298"><option id="captions-font-size-vdo_ai_6107914_component_7298-50%" value="0.50" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-50%">50%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-75%" value="0.75" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-75%">75%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-100%" value="1.00" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-100%">100%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-125%" value="1.25" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-125%">125%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-150%" value="1.50" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-150%">150%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-175%" value="1.75" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-175%">175%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-200%" value="2.00" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-200%">200%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-300%" value="3.00" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-300%">300%</option><option id="captions-font-size-vdo_ai_6107914_component_7298-400%" value="4.00" aria-labelledby="captions-font-size-vdo_ai_6107914_component_7298 captions-font-size-vdo_ai_6107914_component_7298-400%">400%</option></select></fieldset><fieldset class="vjs-edge-style vjs-track-setting"><legend id="vdo_ai_6107914_component_7298" class="">Text Edge Style</legend><select aria-labelledby="vdo_ai_6107914_component_7298"><option id="vdo_ai_6107914_component_7298-None" value="none" aria-labelledby="vdo_ai_6107914_component_7298 vdo_ai_6107914_component_7298-None">None</option><option id="vdo_ai_6107914_component_7298-Raised" value="raised" aria-labelledby="vdo_ai_6107914_component_7298 vdo_ai_6107914_component_7298-Raised">Raised</option><option id="vdo_ai_6107914_component_7298-Depressed" value="depressed" aria-labelledby="vdo_ai_6107914_component_7298 vdo_ai_6107914_component_7298-Depressed">Depressed</option><option id="vdo_ai_6107914_component_7298-Uniform" value="uniform" aria-labelledby="vdo_ai_6107914_component_7298 vdo_ai_6107914_component_7298-Uniform">Uniform</option><option id="vdo_ai_6107914_component_7298-Dropshadow" value="dropshadow" aria-labelledby="vdo_ai_6107914_component_7298 vdo_ai_6107914_component_7298-Dropshadow">Dropshadow</option></select></fieldset><fieldset class="vjs-font-family vjs-track-setting"><legend id="captions-font-family-vdo_ai_6107914_component_7298" class="">Font Family</legend><select aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298"><option id="captions-font-family-vdo_ai_6107914_component_7298-Proportional Sans-Serif" value="proportionalSansSerif" aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298 captions-font-family-vdo_ai_6107914_component_7298-Proportional Sans-Serif">Proportional Sans-Serif</option><option id="captions-font-family-vdo_ai_6107914_component_7298-Monospace Sans-Serif" value="monospaceSansSerif" aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298 captions-font-family-vdo_ai_6107914_component_7298-Monospace Sans-Serif">Monospace Sans-Serif</option><option id="captions-font-family-vdo_ai_6107914_component_7298-Proportional Serif" value="proportionalSerif" aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298 captions-font-family-vdo_ai_6107914_component_7298-Proportional Serif">Proportional Serif</option><option id="captions-font-family-vdo_ai_6107914_component_7298-Monospace Serif" value="monospaceSerif" aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298 captions-font-family-vdo_ai_6107914_component_7298-Monospace Serif">Monospace Serif</option><option id="captions-font-family-vdo_ai_6107914_component_7298-Casual" value="casual" aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298 captions-font-family-vdo_ai_6107914_component_7298-Casual">Casual</option><option id="captions-font-family-vdo_ai_6107914_component_7298-Script" value="script" aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298 captions-font-family-vdo_ai_6107914_component_7298-Script">Script</option><option id="captions-font-family-vdo_ai_6107914_component_7298-Small Caps" value="small-caps" aria-labelledby="captions-font-family-vdo_ai_6107914_component_7298 captions-font-family-vdo_ai_6107914_component_7298-Small Caps">Small Caps</option></select></fieldset></div><div class="vjs-track-settings-controls"><button class="vjs-default-button" title="restore all settings to the default values">Reset<span class="vjs-control-text"> restore all settings to the default values</span></button><button class="vjs-done-button">Done</button></div></div><button class="vjs-close-button vjs-control vjs-button" type="button" aria-live="polite" aria-disabled="false" title="Close Modal Dialog"><span aria-hidden="true" class="vjs-icon-placeholder"></span><span class="vjs-control-text">Close Modal Dialog</span></button><p class="vjs-control-text">End of dialog window.</p></div><div id="vdo_ai_6107914_ima-ad-container" class="vdo_ai_6107914_ima-ad-container ima-ad-container" style="position: absolute; z-index: 1111; display: none;"><div style="position: absolute;"><div style="display: none;"><video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></video><div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div></div><div style="display: none;"><video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></video><div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div></div><iframe src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/bridge3.335.0_en.html" allowfullscreen="" allow="autoplay" style="border: 0px; opacity: 0; margin: 0px; padding: 0px; position: relative;"></iframe></div><div id="vdo_ai_6107914_ima-controls-div" class="vdo_ai_6107914_ima-controls-div ima-controls-div" style="width: 100%;"><div id="vdo_ai_6107914_ima-countdown-div" class="vdo_ai_6107914_ima-countdown-div ima-countdown-div" style="display: block;">Advertisement</div><div id="vdo_ai_6107914_ima-seek-bar-div" class="vdo_ai_6107914_ima-seek-bar-div ima-seek-bar-div" style="width: 100%;"><div id="vdo_ai_6107914_ima-progress-div" class="vdo_ai_6107914_ima-progress-div ima-progress-div"></div></div><div id="vdo_ai_6107914_ima-play-pause-div" class="vdo_ai_6107914_ima-play-pause-div ima-play-pause-div ima-playing"></div><div id="vdo_ai_6107914_ima-mute-div" class="vdo_ai_6107914_ima-mute-div ima-mute-div ima-muted"></div><div id="vdo_ai_6107914_ima-slider-div" class="vdo_ai_6107914_ima-slider-div ima-slider-div"><div id="vdo_ai_6107914_ima-slider-level-div" class="vdo_ai_6107914_ima-slider-level-div ima-slider-level-div" style="width: 0%;"></div></div><div id="vdo_ai_6107914_ima-fullscreen-div" class="vdo_ai_6107914_ima-fullscreen-div ima-fullscreen-div ima-non-fullscreen"></div></div></div></div><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(12).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(13).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(14).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"><img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/pixel(15).gif" style="display: none; width: 1px !important; height: 1px !important; margin: 0px !important;"></div></div>
+<div>
+<div style="margin: 0in 0in 8pt">
+<font face="Arial" size="2">In this article I will explain with an example, how to use the </font><a href="https://www.aspsnippets.com/Search.aspx?q=SqlBulkCopy" target="_blank">SqlBulkCopy</a><font size="2"><font face="Arial"> class in ASP.Net MVC Razor.</font></font></div>
+<div style="margin: 0in 0in 8pt">
+<font face="Arial" size="2">This article will illustrate how to import (insert) data from </font><a href="https://www.aspsnippets.com/Categories/Excel.aspx" target="_blank">Excel</a><font face="Arial" size="2"> file into SQL Server database table using </font><a href="https://www.aspsnippets.com/Search.aspx?q=SqlBulkCopy" target="_blank">SqlBulkCopy</a><font size="2"><font face="Arial"> in ASP.Net MVC Razor.</font></font></div>
+<div style="margin: 0in 0in 8pt">
+<font face="Arial" size="2">The uploaded </font><a href="https://www.aspsnippets.com/Categories/Excel.aspx" target="_blank">Excel</a><font face="Arial" size="2"> file data will be read using <u>OLEDB library</u> and the read data will be inserted into SQL Server database table using </font><a href="https://www.aspsnippets.com/Search.aspx?q=SqlBulkCopy" target="_blank">SqlBulkCopy</a><font size="2"><font face="Arial">.</font></font></div>
+<div style="margin: 0in 0in 8pt">
+<a href="https://www.aspsnippets.com/Search.aspx?q=SqlBulkCopy" target="_blank">SqlBulkCopy</a><font face="Arial" size="2"> class as the name suggests does bulk insert from one source to another and hence all rows from the </font><a href="https://www.aspsnippets.com/Categories/Excel.aspx" target="_blank">Excel</a><font face="Arial" size="2"> sheet can be easily read and inserted into SQL Server database table using the </font><a href="https://www.aspsnippets.com/Search.aspx?q=SqlBulkCopy" target="_blank">SqlBulkCopy</a><font face="Arial" size="2"> class.</font></div>
+<div style="" class="note-box"><div class="icon pull-left col-xs-2"><i class="fa fa-exclamation-triangle text-info"></i></div><div class="right-content pull-left col-xs-10">
+<div style="">
+<font size="2"><font face="Arial"><b><span style="">Note</span></b><span style="">: For beginners in ASP.Net MVC, please refer my article </span></font></font><a href="https://www.aspsnippets.com/Articles/ASPNet-MVC-Hello-World-Tutorial-with-Sample-Program-example.aspx" target="_blank" class="info-link">ASP.Net MVC Hello World Tutorial with Sample Program example</a><font size="2"><font face="Arial"><span style="">.</span></font></font></div>
+</div></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<b>&nbsp;</b></div>
+<div>&nbsp;</div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><b><u>Database</u></b></font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">I have made use of the following table <u>Customers</u> with the schema as follows. <u>CustomerId</u> is an Auto-Increment (Identity) column.</font></font></div>
+<img alt="SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/DownloadFile.ashx">
+<div>&nbsp;</div>
+<div style="" class="note-box"><div class="icon pull-left col-xs-2"><i class="fa fa-exclamation-triangle text-info"></i></div><div class="right-content pull-left col-xs-10">
+<div style="">
+<font size="2"><font face="Arial"><b><span style="">Note</span></b>: You can download the database table SQL by clicking the download link below.</font></font></div>
+<div style="">
+<font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><a href="https://www.aspsnippets.com/DownloadFile.aspx?File=Customers_Table_Empty.sql" class="info-link">Download SQL file</a></div>
+</div></div>
+<div style="margin: 0in 0in 8pt">
+<b>&nbsp;</b></div>
+<div>&nbsp;</div>
+<div style="line-height: normal; margin: 0in 0in 10pt">
+<font size="2"><font face="Arial"><b><u>Connection Strings</u></b></font></font></div>
+<div style="line-height: normal; margin: 0in 0in 10pt">
+<font face="Arial" size="2">The </font><a href="https://www.aspsnippets.com/Categories/Excel.aspx" target="_blank">Excel</a><font size="2"><font face="Arial"> files of version 97-2003 and 2007 and above make use different OLEDB providers and hence two different connection strings have been saved in the <u>Web.Config</u> file.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 10pt">
+<font size="2"><font face="Arial">The <u>DataSource</u> property has been assigned a Placeholder {0}, which will be replaced by actual path of the File.</font></font></div>
+<div style="" class="code_block">
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">connectionStrings</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; &lt;</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">add</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">name</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">=</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">Excel03ConString</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt"> connectionString</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">=</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES'</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">/&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; &lt;</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">add</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">name</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">=</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">Excel07ConString</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt"> connectionString</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">=</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES'</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">/&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;/</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">connectionStrings</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+</div>
+<div style="margin: 0in 0in 8pt">
+<b>&nbsp;</b></div>
+<div>&nbsp;</div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><b><u>Namespaces</u></b></font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">You will need to import the following namespaces.</font></font></div>
+<div style="" class="code_block">
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> System.IO;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> System.Data;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> System.Data.OleDb;</span></div>
+<div style="">
+<span style="line-height: 107%; font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="line-height: 107%; font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> System.Configuration;</span></div>
+</div>
+<div style="margin: 0in 0in 8pt">
+<b>&nbsp;</b></div>
+<div>&nbsp;</div>
+<div style="margin: 0in 0in 8pt">
+<b><u><font size="2"><font face="Arial">Controller</font></font></u></b></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">The Controller consists of two Action methods.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><u>Action method for handling GET operation</u></font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">Inside this Action method, simply the View is returned.</font></font></div>
+<div>&nbsp;</div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<u><font size="2"><font face="Arial">Action method for handling POST operation for uploading and reading Excel file</font></font></u></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">This Action method gets called when the Excel File is selected and the Import Button is clicked, and it gets the uploaded file in the <u>HttpPostedFileBase</u> parameter.</font></font></div>
+<div style="" class="note-box"><div class="icon pull-left col-xs-2"><i class="fa fa-exclamation-triangle text-info"></i></div><div class="right-content pull-left col-xs-10">
+<div style="">
+<font size="2"><font face="Arial"><b><span style="">Note</span></b>: In case the <u><span style="">HttpPostedFileBase</span></u><span style=""> parameter is appearing NULL, then please refer the article, </span></font></font><a href="https://www.aspsnippets.com/Articles/ASPNet-MVC-HttpPostedFileBase-always-returns-NULL.aspx" target="_blank" class="info-link">ASP.Net MVC: HttpPostedFileBase always returns NULL</a><font size="2"><font face="Arial">. </font></font></div>
+</div></div>
+<div>&nbsp;</div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">The uploaded Excel file is saved to a folder named <u>Uploads</u> and then based on its extension whether XLS (97-2003) or XLSX (2007 and above), appropriate connection string is read from the <u>Web.Config</u> file and Placeholder is replaced by the path of the Excel file.</font></font></div>
+<div style="" class="note-box"><div class="icon pull-left col-xs-2"><i class="fa fa-exclamation-triangle text-info"></i></div><div class="right-content pull-left col-xs-10">
+<div style="">
+<font size="2"><font face="Arial"><b><span style="">Note</span></b>: I am considering all Excel files with the first row as the Header Row containing the names of the columns, you can set HDR=’No’ if your excel file does not have a Header Row.</font></font></div>
+</div></div>
+<div>&nbsp;</div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">Using the fetched Sheet name, a SELECT statement is executed and all the records from the Excel sheet are fetched into a DataTable.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">Now a connection is established with the database and the SqlBulkCopy object is initialized and I have specified the name of the Table using the <u>DestinationTableName</u> property. </font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">Finally the columns are mapped and all the rows from the DataTable are inserted into the SQL Server table.</font></font></div>
+<div style="" class="note-box"><div class="icon pull-left col-xs-2"><i class="fa fa-exclamation-triangle text-info"></i></div><div class="right-content pull-left col-xs-10">
+<div style="">
+<font size="2"><font face="Arial"><b><span style="">Note</span></b>: The mapping of columns of the DataTable and the SQL Server table is optional and you need to do only in case where your DataTable and/or the SQL Server Table do not have same number of columns or the names of columns are different.</font></font></div>
+</div></div>
+<div style="line-height: normal">
+&nbsp;</div>
+<div style="" class="code_block">
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">public</span> <span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">class</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">HomeController</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> : </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">Controller</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">{</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: green; font-size: 9.5pt">// GET: Home</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">public</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">ActionResult</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> Index()</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">return</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> View();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; [</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">HttpPost</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">]</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">public</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">ActionResult</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> Index(</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">HttpPostedFileBase</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> postedFile)</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> filePath = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.Empty;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">if</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (postedFile != </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">null</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">)</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> path = Server.MapPath(</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"~/Uploads/"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">if</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (!</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">Directory</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.Exists(path))</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">Directory</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.CreateDirectory(path);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; filePath = path + </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">Path</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.GetFileName(postedFile.FileName);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> extension = </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">Path</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.GetExtension(postedFile.FileName);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; postedFile.SaveAs(filePath);</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> conString = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.Empty;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">switch</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (extension)</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">case</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">".xls"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">: </span><span style="font-family: &#39;courier new&#39;; color: green; font-size: 9.5pt">//Excel 97-03.</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conString = </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">ConfigurationManager</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.ConnectionStrings[</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Excel03ConString"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">].ConnectionString;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">break</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">case</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">".xlsx"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">: </span><span style="font-family: &#39;courier new&#39;; color: green; font-size: 9.5pt">//Excel 07 and above.</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conString = </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">ConfigurationManager</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.ConnectionStrings[</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Excel07ConString"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">].ConnectionString;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">break</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">DataTable</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> dt = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">new</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">DataTable</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conString = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.Format(conString, filePath);</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">OleDbConnection</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> connExcel = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">new</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">OleDbConnection</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">(conString))</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">OleDbCommand</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> cmdExcel = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">new</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">OleDbCommand</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">())</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">OleDbDataAdapter</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> odaExcel = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">new</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">OleDbDataAdapter</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">())</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmdExcel.Connection = connExcel;</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: green; font-size: 9.5pt">//Get the name of First Sheet.</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connExcel.Open();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">DataTable</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> dtExcelSchema;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dtExcelSchema = connExcel.GetOleDbSchemaTable(</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">OleDbSchemaGuid</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.Tables, </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">null</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">string</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> sheetName = dtExcelSchema.Rows[0][</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"TABLE_NAME"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">].ToString();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connExcel.Close();</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family: &#39;courier new&#39;; color: green; font-size: 9.5pt">//Read Data from First Sheet.</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connExcel.Open();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cmdExcel.CommandText = </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"SELECT * From ["</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> + sheetName + </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"]"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; odaExcel.SelectCommand = cmdExcel;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; odaExcel.Fill(dt);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connExcel.Close();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conString = </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">ConfigurationManager</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.ConnectionStrings[</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Constring"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">].ConnectionString;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">SqlConnection</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> con = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">new</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">SqlConnection</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">(conString))</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (</span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">SqlBulkCopy</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> sqlBulkCopy = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">new</span> <span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">SqlBulkCopy</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">(con))</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: green; font-size: 9.5pt">//Set the database table name.</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sqlBulkCopy.DestinationTableName = </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"dbo.Customers"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">;</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: green; font-size: 9.5pt">//[OPTIONAL]: Map the Excel columns with that of the database table</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sqlBulkCopy.ColumnMappings.Add(</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Id"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">, </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"CustomerId"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sqlBulkCopy.ColumnMappings.Add(</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Name"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">, </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Name"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sqlBulkCopy.ColumnMappings.Add(</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Country"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">, </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Country"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">);</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; con.Open();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sqlBulkCopy.WriteToServer(dt);</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; con.Close();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">return</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> View();</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+<span style="line-height: 107%; font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">}</span></div>
+</div>
+<div style="margin: 0in 0in 8pt">
+<b>&nbsp;</b></div>
+<div>&nbsp;</div>
+<div style="margin: 0in 0in 8pt">
+<b><u><font size="2"><font face="Arial">View</font></font></u></b></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">The View consists of an HTML FileUpload element and a Submit Button enclosed in a Form element.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial">The HTML Form has been created using the <u>Html.BeginForm</u> method which accepts the following parameters.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><u>ActionName</u> – Name of the Action. In this case the name is Index.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><u>ControllerName</u> – Name of the Controller. In this case the name is Home.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><u>FormMethod</u> – It specifies the Form Method i.e. GET or POST. In this case it will be set to POST.</font></font></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><u>HtmlAttributes</u> – This array allows to specify the additional Form Attributes. Here we need to specify <u>enctype = “multipart/form-data”</u> which is necessary for uploading Files.</font></font></div>
+<div style="" class="code_block">
+<div style="">
+<span style="font-family: &#39;courier new&#39;; background: yellow; color: black; font-size: 9.5pt">@{</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; Layout = </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">null</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; background: yellow; color: black; font-size: 9.5pt">}</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">!DOCTYPE</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">html</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+&nbsp;</div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">html</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">head</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">meta</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">name</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">="viewport"</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">content</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">="width=device-width"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">/&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">title</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">Index</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;/</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">title</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;/</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">head</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">body</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; <span style="background: yellow">@</span></span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">using</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> (Html.BeginForm(</span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Index"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">, </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"Home"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">, </span><span style="font-family: &#39;courier new&#39;; color: #2b91af; font-size: 9.5pt">FormMethod</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">.Post, </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">new</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> { enctype = </span><span style="font-family: &#39;courier new&#39;; color: #a31515; font-size: 9.5pt">"multipart/form-data"</span><span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt"> }))</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; {</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">input</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">type</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">="file"</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">name</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">="postedFile"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">/&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">input</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">type</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">="submit"</span> <span style="font-family: &#39;courier new&#39;; color: red; font-size: 9.5pt">value</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">="Import"</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">/&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: black; font-size: 9.5pt">&nbsp;&nbsp;&nbsp; }</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;/</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">body</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+<div style="">
+<span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&lt;/</span><span style="font-family: &#39;courier new&#39;; color: maroon; font-size: 9.5pt">html</span><span style="font-family: &#39;courier new&#39;; color: blue; font-size: 9.5pt">&gt;</span></div>
+</div>
+<div style="margin: 0in 0in 8pt">
+&nbsp;</div>
+<div>&nbsp;</div>
+<div style="margin: 0in 0in 8pt">
+<b><u><font size="2"><font face="Arial">Screenshots</font></font></u></b></div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><u>The Excel File</u></font></font></div>
+<img alt="SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/DownloadFile(1).ashx">
+<div>&nbsp;</div>
+<div style="line-height: normal; margin: 0in 0in 8pt">
+<font size="2"><font face="Arial"><u>Table containing the data from the Excel file</u></font></font></div>
+<img alt="SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/DownloadFile(2).ashx">
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div style="margin: 0in 0in 8pt">
+<b><u><font size="2"><font face="Arial">Downloads</font></font></u></b></div>
+<div style="margin: 0in 0in 8pt">
+<a href="javascript:;" class="btn btn-pink"><i class="fa fa-cloud-download fa-fw"></i> Download</a></div>
+</div>
+</div>
+<a class="btn btn-success" id="A1" rel="nofollow" target="_blank" href="https://www.aspsnippets.com/Redirect.aspx?AdId=10567&amp;RedirectUrl=https%3A%2F%2Fwww.e-iceblue.com%2FIntroduce%2Fspire-office-for-net-free.html%3Faff_id%3D91">
+Download Free Files API</a>
+</div>
+</div>
+<div class="col-xs-4 col-md-2 hidden-xs article-body-right">
+<div id="ctl00_contentplaceholder1_Ads23_adContainer" style="clear: both">
+</div>
+<div style="margin: 40px 0 40px 0">
+</div>
+<div id="ctl00_contentplaceholder1_UCAds1_adContainer" style="height:600px;width:160px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="160x600">    </div>
+</div>
+<div style="margin: 40px 0 40px 0" class="right_ad_margin">
+</div>
+<div id="right_fixed_ad" style="position: static;">
+<div id="ctl00_contentplaceholder1_UCAds2_adContainer" style="height:600px;width:160px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="160x600">    </div>
+</div>
+</div>
+</div>
+</div>
+<div style="position: relative; top: -13px">
+<div id="ctl00_contentplaceholder1_Ads11_adContainer" style="clear: both">
+</div>
+</div>
+<div class="heading-sep">
+</div>
+<a name="comments"></a><a name="Comments"></a>
+<div class="row">
+<div class="col-md-12">
+<div id="dvGridRelatedArticles" style="">
+<div class="panel">
+<div class="panel-heading">
+<span class="fa fa-files-o fa-fw"></span>
+Related Articles
+</div>
+<div class="panel-body">
+<div id="carousel-related-article" class="carousel slide" data-ride="carousel">
+<div id="dvRelatedArticleCarousel" class="carousel-inner">
+<div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Save-and-Retrieve-Files-from-SQL-Server-Database-using-ASPNet.aspx"><b>Save and Retrieve Files from SQL Server Database using ASP.Net</b></a><br><span>Here Mudassar Ahmed Khan has explained how to save file as Binary data inside SQL Server database and also how to retrieve them reconvert to their respective formats in ASP.Net using C# and VB.Net.</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Display-Images-from-SQL-Server-Database-using-ASP.Net.aspx"><b>Display Images from SQL Server Database using ASP.Net</b></a><br><span>Here Mudassar Ahmed Khan has explained how to retrieve and display images that are stored in SQL Server Database in ASP.Net Web application</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Save-Files-to-SQL-Server-Database-using-FileUpload-Control.aspx"><b>Save Files to SQL Server Database using FileUpload Control</b></a><br><span>Mudassar Ahmed Khan has explained how to save file to database directly using File Upload Control in ASP.Net</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Display-images-from-SQL-Server-Database-in-ASP.Net-GridView-control.aspx"><b>Display images from SQL Server Database in ASP.Net GridView control</b></a><br><span>Here Mudassar Ahmed Khan has explained how to build an Image Gallery to display images from SQL Server Database using the GridView control in ASP.Net.
+
+Image files will be uploaded and then will be saved (inserted) to SQL Server database table in Binary format. The saved (inserted) Image files will be retrieved and displayed in ASP.Net GridView along with feature to Zoom the Image using jQuery.</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Export-GridView-with-Images-from-database-to-Word-Excel-and-PDF-Formats.aspx"><b>Export GridView with Images from database to Word Excel and PDF Formats</b></a><br><span>Here Mudassar Ahmed Khan has explained how to Export a GridView with Images or Pictures to Word Excel or PDF Formats. In this article the GridView is displaying images from SQL Server Database</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Read-and-Import-Excel-Sheet-into-SQL-Server-Database-in-ASP.Net.aspx"><b>Read and Import Excel Sheet into SQL Server Database in ASP.Net</b></a><br><span>Here Mudassar Ahmed Khan has explained with an example, how to insert data from Excel sheet into SQL Server database table in ASP.Net using C# and VB.Net.
+
+The Excel file will be first uploaded and copied to a folder on Server. Then using Stored Procedure and OLEDB, the data from Excel file will be read and imported into SQL Server Database Table.</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/ASP.Net-ListBox-Save-Multiple-Selected-Items-in-the-Database.aspx"><b>ASP.Net ListBox: Save Multiple Selected Items in the Database</b></a><br><span>Here Vinz has explained the basics on how to save multiple selected items from the ASP.Net ListBox to the database using ADO.Net</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Save-and-Retrieve-Dynamic-TextBox-values-in-GridView-to-SQL-Server-Database.aspx"><b>Save and Retrieve Dynamic TextBox values in GridView to SQL Server Database</b></a><br><span>Here Vinz has explained how to Save and Retrieve Dynamic TextBox values in GridView to SQL Server Database in ASP.Net Web Application</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Transfer-SQL-Server-Database-from-Local-to-Server-using-Database-Backup.aspx"><b>Transfer SQL Server Database from Local to Server using Database Backup</b></a><br><span>Here Mudassar Ahmed Khan has explained how to transfer or publish your ASP.Net website database from your local machine onto the server by creating a database backup in SQL Server</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Tip-Query-to-get-all-column-names-from-database-table-in-SQL-Server.aspx"><b>Tip  Query to get all column names from database table in SQL Server</b></a><br><span>Here Mudassar Ahmed Khan has explained How to retrieve column names from a database table using SQL Query in SQL Server Database</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Using-Stored-Procedures-in-SQL-Server-Database.aspx"><b>Using Stored Procedures in SQL Server Database</b></a><br><span>Here Mudassar Ahmed Khan has explained how to create modify and delete Stored Procedures in Microsoft SQL Server Database</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Save-and-Repopulate-Users-selections-from-Database-using-ASP.Net-CheckBoxList.aspx"><b>Save and Repopulate Users selections from Database using ASP.Net CheckBoxList</b></a><br><span>Here Mudassar Ahmed Khan has explained how one can save users selections in SQL Server database and the repopulate or retrieve the same on next visit using ASP.Net CheckBoxList Control</span></div><div class="item active"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Add-record-to-Database-using-ASP.Net-GridView-EmptyDataTemplate-and-FooterTemplate.aspx"><b>Add record to Database using ASP.Net GridView EmptyDataTemplate and FooterTemplate</b></a><br><span>Here Mudassar Ahmed Khan has explained how to insert new row to database using ASP.Net GridView's EmptyDataTemplate and Footer Template</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Populate-ASPNet-40-Chart-Control-Pie-Chart-from-SQL-Server-Database.aspx"><b>Populate ASP.Net 4.0 Chart Control Pie Chart from SQL Server Database</b></a><br><span>Here Mudassar Ahmed Khan has explained with an example, how to dynamically populate ASP.Net Chart control- Pie Chart from SQL Server Database on the SelectedIndexChanged event of ASP.Net DropDownList control. 
+
+Thus the chart control populates the charts based in the DropDownList selection.</span></div><div class="item"><a class="medium-title" href="https://www.aspsnippets.com/Articles/Populate-ASPNet-ListView-from-database-and-Repeat-columns-horizontally-using-GroupTemplate.aspx"><b>Populate ASP.Net ListView from database and Repeat columns horizontally using GroupTemplate</b></a><br><span>Here Mudassar Ahmed Khan has explained how to populate the ASP.Net ListView control from database and how to use repeat the ListView Items horizontally using its GroupItemCount and GroupTemplate property.</span></div></div>
+<!-- Controls -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="lnkHiddenArticleLink">
+</div>
+<div>
+<div class="article_comments panel">
+<div class="header panel-heading">
+<span class="fa fa-comments fa-fw"></span>
+Comments
+</div>
+<div class="abstract">
+<div class="comment-div panel-body">
+<div id="dvComments">
+</div>
+<span id="lblNoComments" style="padding: 5px 0" class="text-b">
+No comments have been added to this article.</span>
+<div class="more_section">
+<div id="dvMoreComments">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="article-add-comment panel box-shadow">
+<div id="comment-heading" class="panel-heading">
+<span class="fa fa-comment fa-fw"></span>
+Add Comments
+</div>
+<div class="media">
+<div class="pull-right hidden-xs" style="margin-top: 14px">
+<div id="ctl00_contentplaceholder1_Ads3_adContainer" style="height:250px;width:300px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="300x250">    </div>
+</div>
+<div class="heading-sep">
+</div>
+<div id="ctl00_contentplaceholder1_Ads4_adContainer" style="height:250px;width:300px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="300x250">    </div>
+</div>
+</div>
+<div class="media-body">
+<div class="content panel-body">
+<div class="greenbox" style="display: none">
+<div class="col-md-12 success-box">
+<div class="icon pull-left col-xs-2">
+<i class="fa fa-check-circle text-info"></i>
+</div>
+<div class="right-content pull-left col-xs-10" style="padding-top: 0px;">
+Thank you for the feedback. The comment is now awaiting moderation. You will be notified via email when the author replies to your comment.
+</div>
+</div>
+</div>
+<div class="row" id="dvAddComment">
+<div class="col-md-12">
+<div id="Comment-not-selected" class="error-box" style="display: none; margin-bottom: 10px;">
+<div class="icon pull-left col-xs-2">
+<i class="fa fa-times-circle text-info"></i>
+</div>
+<div class="right-content pull-left col-xs-10" style="padding-top: 0px;">
+Please select a comment to reply</div>
+</div>
+<div class="info-box">
+<div class="icon pull-left col-xs-2">
+<i class="fa fa-info-circle text-info"></i>
+</div>
+<div class="right-content pull-left col-xs-10">
+<span>You can add your comment about this article using the form below. Make sure you provide a valid email address <br>else you won't be notified when the author replies to your comment</span><br>Please note that all comments are moderated and will be deleted if they are<ul><li>Not relavant to the article</li><li>Spam</li><li>Advertising campaigns or links to other sites</li><li>Abusive content.</li></ul><b>Please do not post code, scripts or snippets.</b></div>
+</div>
+<div>
+<div class="note-box ">
+<div class="icon pull-left col-xs-2">
+<i class="fa fa-thumbs-up text-info"></i>
+</div>
+<div class="right-content pull-left col-xs-10" style="padding-top: 0px;">
+<div style="margin: 5px 0 0 10px;">
+<div>
+
+<div class="hidden-xs">
+<div class="SocialButtonWrap" style="position: relative">
+<div id="___ytsubscribe_1" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 116px; height: 24px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 116px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I1_1569702752643" name="I1_1569702752643" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/subscribe_embed(1).html" data-gapiattached="true"></iframe></div>     
+</div>
+<div class="SocialButtonWrap">
+<div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/ASPSnippets-306994206006035/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=137087399669781&amp;container_width=0&amp;href=https%3A%2F%2Fwww.facebook.com%2FASPSnippets-306994206006035%2F&amp;layout=button_count&amp;locale=en_GB&amp;sdk=joey&amp;share=false&amp;show_faces=false&amp;size=large"><span style="vertical-align: bottom; width: 90px; height: 28px;"><iframe name="f28b1a657ef1aa4" width="1000px" height="1000px" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/like(1).html" style="border: none; visibility: visible; width: 90px; height: 28px;" class=""></iframe></span></div>
+</div>        
+<div class="SocialButtonWrap GooglePlusButtonWrap" style="position: relative; top: 3px;">
+<div id="___follow_1" style="position: absolute; width: 450px; left: -10000px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position:absolute;top:-10000px;width:450px;margin:0px;border-style:none" tabindex="0" vspace="0" width="100%" id="I3_1569702752664" name="I3_1569702752664" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/follow(1).html" data-gapiattached="true"></iframe></div><div class="g-follow" data-annotation="bubble" data-height="24" data-href="//plus.google.com/u/0/110371172807820981480" data-rel="publisher" data-gapiscan="true" data-onload="true" data-gapistub="true">
+</div>
+</div>
+<div class="SocialButtonWrap">
+<iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 172px; height: 28px;" title="Twitter Follow Button" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/follow_button.d6364fae9340b0be5f13818370141fd0.en(1).html" data-screen-name="ASPSnippets"></iframe>
+</div>
+<div class="SocialButtonWrap rssButtonWrap" style="position: relative; top: 4px;">
+<a href="https://www.aspsnippets.com/Rss.ashx" target="_blank" class="SocialLink rss" data-container="body" data-toggle="popover" data-placement="top" data-content="Subscribe to RSS feed." data-original-title="" title=""><span class="fa fa-rss-square fa-fw"></span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="form-group">
+<div class="row">
+<label for="ctl00_contentplaceholder1_txtName" id="ctl00_contentplaceholder1_lblName" class="col-md-2 control-label">Name</label>
+<div class="col-md-5">
+<input name="ctl00$contentplaceholder1$txtName" type="text" id="ctl00_contentplaceholder1_txtName" class="form-control" placeholder="Name"></div>
+<div class="col-md-5 input-validator">
+<span id="ctl00_contentplaceholder1_rfvName" style="color:Red;display:none;">Required</span></div>
+</div>
+</div>
+<div class="form-group">
+<div class="row">
+<label for="ctl00_contentplaceholder1_txtEmail" id="ctl00_contentplaceholder1_lblEmail" class="col-md-2 control-label">Email</label>
+<div class="col-md-5">
+<input name="ctl00$contentplaceholder1$txtEmail" type="text" id="ctl00_contentplaceholder1_txtEmail" class="form-control" placeholder="Email">
+</div>
+<div class="col-md-5 input-validator">
+<span id="ctl00_contentplaceholder1_rfvEmail" style="color:Red;display:none;">Required</span>
+<span id="ctl00_contentplaceholder1_revEmail" style="color:Red;display:none;">Invalid Email Address</span>
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="row">
+<label for="ctl00_contentplaceholder1_txtComment" id="ctl00_contentplaceholder1_Label1" class="col-md-2 control-label">Comment</label>
+<div class="col-md-5">
+<textarea name="ctl00$contentplaceholder1$txtComment" rows="3" cols="20" id="ctl00_contentplaceholder1_txtComment" class="form-control" placeholder="Comment"></textarea>
+</div>
+<div class="col-md-5 input-validator">
+<span id="ctl00_contentplaceholder1_RequiredFieldValidator1" style="color:Red;top:23px;visibility:hidden;">Required</span>
+</div>
+</div>
+</div>
+<div class="form-group">
+<div class="row">
+<div class="col-md-3 pull-left col-xs-5 col-last" style="padding-top: 3px">
+<label for="ctl00_contentplaceholder1_txtSecurityCode" id="ctl00_contentplaceholder1_lblCaptchCode" class="control-label">Security code:</label>
+</div>
+<div class="col-md-4 captcha col-xs-7">
+<div class="pull-right">
+<input name="ctl00$contentplaceholder1$txtSecurityCode" type="text" maxlength="3" id="ctl00_contentplaceholder1_txtSecurityCode" class="form-control" onkeyup="keyUP(event.keyCode)" onkeydown="return isNumeric(event.keyCode);" style="width:45px;">
+</div>
+<div class="pull-right" style="padding-right: 10px;">
+<img alt="Captcha" align="NotSet" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/GenerateImage.ashx"><input type="hidden" name="ucCaptcha_Expression" value="g/dPnr0/ZgPoUYkGfsUIGA=="><script type="text/javascript">var CaptchaExpression = 'g/dPnr0/ZgPoUYkGfsUIGA==';</script>
+</div>
+</div>
+<div class="col-md-4 input-validator">
+<span id="ctl00_contentplaceholder1_RequiredFieldValidator4" style="color:Red;display:none;">Required</span>
+<span id="ctl00_contentplaceholder1_invalidCaptcha" class="error" style="display: none; color: #FF0000;">
+Invalid security code.</span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-5 col-md-offset-2">
+<div class="info-box">
+<div class="pull-left col-xs-2" style="max-width: 30px">
+<input type="checkbox" id="chkAgreement">
+</div>
+<div class="right-content pull-left col-xs-5" style="margin-left: 3px; max-width: 300px; padding: 5px 0px 0px; position: relative; top: -3px;">
+<label for="chkAgreement">
+I declare, I accept the site's <a href="https://www.aspsnippets.com/PrivacyPolicy.aspx">Privacy Policy</a>.</label></div>
+</div>
+</div>
+</div>
+<div class="col-md-5 input-validator col-md-offset-2">
+<span id="ctl00_contentplaceholder1_CustomValidator1" style="color:Red;visibility:hidden;">Required</span>
+</div>
+<div class="row">
+<div class="col-md-10 col-md-offset-2">
+<button id="ctl00_contentplaceholder1_Button1" type="submit" name="AddComment" onclick="Page_ClientValidate(&#39;CommentValidator&#39;);" class="btn btn-pink submit">
+<span class="fa fa-cloud-upload fa-fw"></span>Add Comment</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="popup" id="AuthorMessagePopup" style="display: none;">
+<div class="header">
+Message from Author</div>
+<div align="right">
+<a href="javascript:;" class="close"><span class="fa fa-times-circle fa-fw"></span>
+</a>
+</div>
+<div class="body">
+<div class="media">
+<div class="pull-left">
+<img class="avatar" alt="Author: Mudassar Khan" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/Mudassar.jpg" style="width: 65px;
+height: 65px;"></div>
+<div class="media-body">
+Hi,<br>
+This is <b>Mudassar Khan</b>. Thank you for visiting this website.
+<br>
+<br>
+<b>Need more help? <i class="fa fa-hand-o-right" style="font-size: 12pt; color: #555">
+</i></b>Ask our team at <a href="https://www.aspforums.net/threads/" target="_blank">
+ASPForums.Net</a>
+<br>
+<b>Happy! <i class="fa fa-smile-o" style="font-size: 12pt; color: #555"></i><i class="fa fa-hand-o-right" style="font-size: 12pt; color: #555"></i></b>Please <b>Share</b> and <b>Subscribe</b>
+to support us.
+</div>
+<br>
+<div class="note-box">
+<div class="icon pull-left col-xs-2">
+<i class="fa fa-share-alt text-info" style="font-size: 30pt"></i>
+</div>
+<div class="right-content pull-left col-xs-10" style="padding-top: 0px;">
+<div style="margin: 5px 0 0 10px;">
+<a title="Share on FaceBook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.aspsnippets.com%2fArticles%2fSqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx">
+<img alt="Share on FaceBook" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/fb1.png"></a> <a title="Share on Google" target="_blank" href="https://plus.google.com/share?url=https%3a%2f%2fwww.aspsnippets.com%2fArticles%2fSqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx">
+<img alt="Share on Google" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/go.png"></a> <a title="Share on Twitter" target="_blank" href="https://twitter.com/share?url=https%3a%2f%2fwww.aspsnippets.com%2fArticles%2fSqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC.aspx&amp;text=SqlBulkCopy%20MVC:%20Bulk%20Import%20(Insert)%20data%20from%20Excel%20to%20Database%20using%20SqlBulkCopy%20in%20ASP.Net%20MVC">
+<img alt="Share on Twitter" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/tw1.png"></a>
+</div>
+</div>
+</div>
+</div>
+<div align="right" class="buttons popup-footer" style="padding: 5px">
+</div>
+</div>
+</div>
+<div class="popup" id="DownloadPopup" style="width: 520px; display: none;">
+<div class="header">
+<span class="fa fa-cloud-download fa-fw"></span>
+Download</div>
+<div align="right">
+<a href="javascript:;" class="close"><span class="fa fa-times-circle fa-fw"></span>
+</a>
+</div>
+<div class="body" align="center">
+<div class="downloadTerms">
+<a>Disclaimer</a>: The code samples and API available at <a href="https://aspsnippets.com/">www.aspsnippets.com</a> are available absolutely free. 
+You are free to use it for commercial as well as non-commercial use at your own risk, but you cannot use it for posting on blogs or other tutorial websites similar to <a href="https://aspsnippets.com/">www.aspsnippets.com</a> without giving reference link to the original article.
+<br>
+All the code samples and API provided by the authors are solely their creation and neither  the author nor the site are responsible if it does not work as intended.
+</div>
+<div class="ad-wrap" align="center">
+<div id="ctl00_contentplaceholder1_Ads5_adContainer" style="height:250px;width:300px;clear: both">
+<div data-type="ad" data-publisher="lqm.aspsnippets.site" data-zone="ron" data-format="300x250">    </div>
+</div>
+</div>
+<input type="hidden" name="ctl00$contentplaceholder1$hfDownloadUrl" id="ctl00_contentplaceholder1_hfDownloadUrl" value="https://www.aspsnippets.com/DownloadFile.aspx?File=ecc6298d-31e8-49f5-8a83-08261eb36abb.zip">
+<div class="media">
+<div class="pull-left">
+<span class="checkbox"><input id="ctl00_contentplaceholder1_chkAgree" type="checkbox" name="ctl00$contentplaceholder1$chkAgree"><label for="ctl00_contentplaceholder1_chkAgree">I agree to the above terms.</label></span>
+</div>
+<div class="media-body">
+<div id="dvAgreeError" class="error" style="display: none">
+Required
+</div>
+</div>
+</div>
+<div class="text-left">
+<a class="button btn btn-pink download"><span class="fa fa-cloud-download fa-fw"></span>
+Download</a>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+PageName = "Article";
+var article = { ArticleId: parseInt("2107"), Title: "SqlBulkCopy MVC: Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC", Slug: "SqlBulkCopy-MVC-Bulk-Import-Insert-data-from-Excel-to-Database-using-SqlBulkCopy-in-ASPNet-MVC", Author: { Slug: "Mudassar-Khan"} };
+var IPAddress = "157.43.89.47";
+var approved = Boolean("False");
+var CommentedUpdatedSuccessMessage = "Comment has been updated.";
+var CommentTemplate;
+function LoadCommentSection() {
+//$(document).ready(function () {
+var isCommentLoaded = false;
+$(window).scroll(function () {
+if (($(window).scrollTop() + $(window).height() - 150) > ($("#lnkHiddenArticleLink")[0].offsetTop) && !isCommentLoaded) {  
+isCommentLoaded = true;
+//GetRelatedArticles('');
+$('input[type=text]').bind("keydown", function(e)
+{
+var keyCode = e.which ? e.which : e.keyCode;
+return (keyCode!=13);
+});
+}
+});
+};
+function ValidateTermsCheckBox(sender, args) {
+if (document.getElementById("chkAgreement").checked == true) {
+args.IsValid = true;
+} else {
+args.IsValid = false;
+}
+}; 
+</script>
+<script> (function (v, d, o, ai) { ai = d.createElement('script'); ai.defer = true; ai.async = true; ai.src = v.location.protocol + o; d.head.appendChild(ai); })(window, document, '//a.vdo.ai/core/aspsnippets/vdo.ai.js?vdo=34');</script> 
+</div>
+</div>
+</div>
+</div>
+<div class="row page-footer">
+<div class="col-md-12">
+<div class="row sub-footer">
+<div class="col-md-6">
+<div class="sub-footer-title">
+What our readers say
+</div>
+<div class="sub-footer-content">
+<div class="Testimonial">
+<div class="panel-body">
+<div class="left-quate">
+<span class="fa fa-quote-left fa-fw"></span>
+</div>
+<div class="Testimonial-content">
+<div id="carousel-testimonials" class="carousel slide" data-ride="carousel">
+<div class="carousel-inner" id="dvTestimonial">
+<div class="item"><b>Mahesh</b><br><span>Really appreciate this website Great work</span></div><div class="item"><b>MAHESH NAGAR</b><br><span>I have 6.5 years experience and in my entire carrier first time I got clear concept of Instead of trigger .<br><br>Thanks a lot</span></div><div class="item"><b>Christian Eduardo Rivera Tello</b><br><span>Usted realmente realiza un gran trabajo . Muchas Gracias</span></div><div class="item active"><b>Gopal</b><br><span>Thank you so much Khan I have been struggling from past 4 hours. Finally I found your article. 10000000s of Thanks you.</span></div><div class="item"><b>Milder Lisondra</b><br><span>Excellent overview of ASP.NET MVC. I was searching for something to jump start my knowledge.</span></div><div class="item"><b>Joel Watson</b><br><span>THANK YOU    Finally someone who explained it simply and it worked THANKS AGAIN</span></div><div class="item"><b>Melwyn</b><br><span>Hi Sir Really you are doing a great job. When I have a doubt in .NET aspsnippets is the first website I used to refer. Hats off sir</span></div><div class="item"><b>Manojtns</b><br><span>Your inputs are very helpful and excellent for the starters like me  Thank you so much</span></div><div class="item"><b>Michieal</b><br><span>I wanted to say thank you. Even for intermediate users like me this was a very helpful reminder of what we need to watch out for when making sql database applications.</span></div><div class="item"><b>Nabil Elibairy</b><br><span>Very good detailed step by step with explanation of every how and why. We appreciate your sincere willing to teach.</span></div></div>
+<!-- Controls -->
+</div>
+<div class="right-quate">
+<span class="fa fa-quote-right fa-fw"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 well" align="left" style="padding-left: 50px;">
+©
+2019
+<a href="https://www.aspsnippets.com/">www.aspsnippets.com</a>
+All rights reserved | <a href="https://aspsnippets.com/PrivacyPolicy.aspx">Privacy Policy</a>
+| Powered by <a href="http://www.excelasoft.com/">Excelasoft Solutions</a>
+<img src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/excelasoft.png" class="excelasoft-img" alt="Excelasoft Solutions">
+</div>
+<div class="col-md-4" align="right" style="font-size: 30px; padding-top: 14px">
+<a href="https://www.facebook.com/pages/ASPSnippets/306994206006035" target="_blank">
+<span class="fa fa-facebook-square fa-fw"></span></a><a href="https://plus.google.com/110371172807820981480" target="_blank"><span class="fa fa-google-plus-square fa-fw" style="margin-right: 0"></span></a><a href="https://twitter.com/aspsnippets" target="_blank"><span class="fa fa-twitter-square fa-fw"></span></a><a href="https://www.aspsnippets.com/Rss.ashx" target="_blank"><span class="fa fa-rss-square fa-fw"></span></a>
+</div>
+</div>
+</div>
+</div>
+<input type="hidden" name="IsPostBack" id="IsPostBack" value="false">
+<input type="hidden" name="PostbackControl" id="PostbackControl" value="">
+<div class="menu-modal" style="display: none">
+</div>
+<a id="ctl00_lnkFake" href="javascript:__doPostBack(&#39;ctl00$lnkFake&#39;,&#39;&#39;)"></a>
+<div id="dvErrorPopup" class="popup" style="width: 630px; margin-left: 10px; display: none;">
+<div class="header">
+<span class="fa  fa-exclamation-triangle fa-fw"></span>
+Error Details
+</div>
+<div align="right">
+<a href="javascript:;" class="close"><span class="fa fa-times-circle fa-fw"></span>
+</a>
+</div>
+<div class="body">
+<div class="content">
+</div>
+</div>
+</div>
+</form>
+<script type="text/javascript">
+var SearchUrl = "/Search.aspx";
+var InvalidEmailWithIcon = "<i class='fa fa-times-circle text-info'></i>Invalid email address.";
+var Global_Label_InvalidEmail = "Invalid Email Address";
+var SubscribeThankyouMessagewithIcon = "<i class='fa fa-check-circle text-info'></i>Thank you! You are now subscribed.";
+var AlreadySubcribeMessageWithIcon = "<i class='fa fa-times-circle text-info'></i>You are already subscribed."
+var SubscribeThankyouMessage = "Thank you! You are now subscribed.";
+var AlreadySubcribeMessage = "You are already subscribed."
+</script>
+<script>
+window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+ga('create', 'UA-7533693-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async="" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/analytics.js.download"></script>
+<script type="text/javascript">
+function _dmBootstrap(file) {
+var _dma = document.createElement('script');
+_dma.type = 'text/javascript';
+_dma.async = true;
+_dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+}
+//function _dmFollowup(file) { if (Browser != "IE") { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); } }
+//(function () { if (Browser != "IE") { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); } })();
+function _dmFollowup(file) { if (typeof DMAds === 'undefined') _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js'); }
+(function () {_dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000); })();
+</script>
+<div id="dvCookie" class="popup" style="display: none; bottom: 15px; box-shadow: 1px 1px 8px #666;
+z-index: 99; right: 15px; min-width: 300px;">
+<div class="float-box-white-bg">
+<div class="header">
+Disclaimer
+</div>
+<div class="body">
+This site makes use of Cookies. Please refer <a href="https://www.aspsnippets.com/PrivacyPolicy.aspx">Privacy Policy</a> for more details.
+</div>
+<div class="buttons popup-footer" align="right" style="padding:0 10px 10px 0">
+<a class="btn btn-pink" onclick="HideCookieBox()">Got it</a>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+if (document.cookie.indexOf('privacy') == -1) {
+document.getElementById("dvCookie").style.display = "block";
+};
+function HideCookieBox() {
+document.cookie = "username=privacy; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/";
+//alert(document.cookie.indexOf('privacy'));
+document.getElementById("dvCookie").style.display = "none";
+};
+</script>
+<script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/monetization.js.download" type="text/javascript"></script>
+<script>
+(function () {
+if (typeof _bsa !== 'undefined' && _bsa) {
+// format, zoneKey, segment:value, options
+_bsa.init('fancybar', 'CK7DE5QU', 'placement:aspsnippetscom');
+}
+})();
+(function () {
+if (typeof _bsa !== 'undefined' && _bsa) {
+_bsa.init('stickybox', 'CK7DE2JU', 'placement:aspsnippetscom');
+}
+})();
+</script>
+
+<script type="text/javascript">
+var SearchUrl = "/Search.aspx";
+var InvalidEmailWithIcon = "<i class='fa fa-times-circle text-info'></i>Invalid email address.";
+var Global_Label_InvalidEmail = "Invalid Email Address";
+var SubscribeThankyouMessagewithIcon = "<i class='fa fa-check-circle text-info'></i>Thank you! You are now subscribed.";
+var AlreadySubcribeMessageWithIcon = "<i class='fa fa-times-circle text-info'></i>You are already subscribed.";
+var SubscribeThankyouMessage = "Thank you! You are now subscribed.";
+var AlreadySubcribeMessage = "You are already subscribed.";
+</script>
+<script>var EnableSocialIcons = true;</script>
+<script src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/sdk.js(1).download"></script>
+<script type="text/javascript" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/wr1.js.download"></script>
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+theForm.__EVENTTARGET.value = eventTarget;
+theForm.__EVENTARGUMENT.value = eventArgument;
+theForm.submit();
+}
+}
+//]]>
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_contentplaceholder1_rfvName"), document.getElementById("ctl00_contentplaceholder1_rfvEmail"), document.getElementById("ctl00_contentplaceholder1_revEmail"), document.getElementById("ctl00_contentplaceholder1_RequiredFieldValidator1"), document.getElementById("ctl00_contentplaceholder1_RequiredFieldValidator4"), document.getElementById("ctl00_contentplaceholder1_CustomValidator1"));
+//]]>
+//<![CDATA[
+var ctl00_contentplaceholder1_rfvName = document.all ? document.all["ctl00_contentplaceholder1_rfvName"] : document.getElementById("ctl00_contentplaceholder1_rfvName");
+ctl00_contentplaceholder1_rfvName.controltovalidate = "ctl00_contentplaceholder1_txtName";
+ctl00_contentplaceholder1_rfvName.errormessage = "Required";
+ctl00_contentplaceholder1_rfvName.display = "Dynamic";
+ctl00_contentplaceholder1_rfvName.validationGroup = "CommentValidator";
+ctl00_contentplaceholder1_rfvName.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_contentplaceholder1_rfvName.initialvalue = "";
+var ctl00_contentplaceholder1_rfvEmail = document.all ? document.all["ctl00_contentplaceholder1_rfvEmail"] : document.getElementById("ctl00_contentplaceholder1_rfvEmail");
+ctl00_contentplaceholder1_rfvEmail.controltovalidate = "ctl00_contentplaceholder1_txtEmail";
+ctl00_contentplaceholder1_rfvEmail.errormessage = "Required";
+ctl00_contentplaceholder1_rfvEmail.display = "Dynamic";
+ctl00_contentplaceholder1_rfvEmail.validationGroup = "CommentValidator";
+ctl00_contentplaceholder1_rfvEmail.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_contentplaceholder1_rfvEmail.initialvalue = "";
+var ctl00_contentplaceholder1_revEmail = document.all ? document.all["ctl00_contentplaceholder1_revEmail"] : document.getElementById("ctl00_contentplaceholder1_revEmail");
+ctl00_contentplaceholder1_revEmail.controltovalidate = "ctl00_contentplaceholder1_txtEmail";
+ctl00_contentplaceholder1_revEmail.errormessage = "Invalid Email Address";
+ctl00_contentplaceholder1_revEmail.display = "Dynamic";
+ctl00_contentplaceholder1_revEmail.validationGroup = "CommentValidator";
+ctl00_contentplaceholder1_revEmail.evaluationfunction = "RegularExpressionValidatorEvaluateIsValid";
+ctl00_contentplaceholder1_revEmail.validationexpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+var ctl00_contentplaceholder1_RequiredFieldValidator1 = document.all ? document.all["ctl00_contentplaceholder1_RequiredFieldValidator1"] : document.getElementById("ctl00_contentplaceholder1_RequiredFieldValidator1");
+ctl00_contentplaceholder1_RequiredFieldValidator1.controltovalidate = "ctl00_contentplaceholder1_txtComment";
+ctl00_contentplaceholder1_RequiredFieldValidator1.errormessage = "Required";
+ctl00_contentplaceholder1_RequiredFieldValidator1.validationGroup = "CommentValidator";
+ctl00_contentplaceholder1_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_contentplaceholder1_RequiredFieldValidator1.initialvalue = "";
+var ctl00_contentplaceholder1_RequiredFieldValidator4 = document.all ? document.all["ctl00_contentplaceholder1_RequiredFieldValidator4"] : document.getElementById("ctl00_contentplaceholder1_RequiredFieldValidator4");
+ctl00_contentplaceholder1_RequiredFieldValidator4.controltovalidate = "ctl00_contentplaceholder1_txtSecurityCode";
+ctl00_contentplaceholder1_RequiredFieldValidator4.errormessage = "Required";
+ctl00_contentplaceholder1_RequiredFieldValidator4.display = "Dynamic";
+ctl00_contentplaceholder1_RequiredFieldValidator4.validationGroup = "CommentValidator";
+ctl00_contentplaceholder1_RequiredFieldValidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_contentplaceholder1_RequiredFieldValidator4.initialvalue = "";
+var ctl00_contentplaceholder1_CustomValidator1 = document.all ? document.all["ctl00_contentplaceholder1_CustomValidator1"] : document.getElementById("ctl00_contentplaceholder1_CustomValidator1");
+ctl00_contentplaceholder1_CustomValidator1.errormessage = "Required";
+ctl00_contentplaceholder1_CustomValidator1.validationGroup = "CommentValidator";
+ctl00_contentplaceholder1_CustomValidator1.evaluationfunction = "CustomValidatorEvaluateIsValid";
+ctl00_contentplaceholder1_CustomValidator1.clientvalidationfunction = "ValidateTermsCheckBox";
+//]]>
+//<![CDATA[
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+ValidatorOnLoad();
+}
+function ValidatorOnSubmit() {
+if (Page_ValidationActive) {
+return ValidatorCommonOnSubmit();
+}
+else {
+return true;
+}
+}
+//]]>
+</script><script id="_vdo_ads_css_5654_" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/vdo.min.js.download"></script><script id="_vdo_ads_sdk_5654_" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/ima3.js.download"></script><script id="_vdo_ads_frame_5654_" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/adframe.js.download" gapi_processed="true"></script><iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}" style="display: none;"></div><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/xd_arbiter.html" style="border: none;"></iframe></div><div></div></div></div><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/widget_iframe.d6364fae9340b0be5f13818370141fd0.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe name="oauth2relay627343557" id="oauth2relay627343557" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div style="display: block; visibility: hidden; position: absolute; width: 106px; left: -10000px; top: -10000px;"><table cellpadding="0" cellspacing="0" dir="ltr" style="width:106px;" frame="void" rules="none" class=" gc-bubbleDefault pls-container"><tbody><tr class="gc-reset"><td class="pls-topLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/border_3.gif"></td><td class="pls-topTail gc-reset"><img class="pls-tailbottom gc-reset" style="width:15px !important; height:9px !important; max-width: 15px !important; max-height: 9px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacerbottom gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-topRight gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/border_3.gif"></td></tr><tr class="gc-reset"><td class="pls-vertShimLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-vertShim gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-vertShimRight gc-reset"><img class="pls-dropTR gc-reset" style="width:5px !important; height:4px !important; max-width: 5px !important; max-height: 4px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-contentLeft gc-reset"><img class="pls-tailright gc-reset" style="width:9px !important; height:15px !important; max-width: 9px !important; max-height: 15px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacerright gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-contentWrap gc-reset"><div class="goog-bubble-content gc-reset"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin:0px;position:absolute;z-index:1;border-style:none;outline:none;width:100px;" tabindex="0" vspace="0" width="100%" id="I0_1569702756014" name="I0_1569702756014" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/subscribe_embed(2).html"></iframe></div></td><td class="pls-dropRight gc-reset"><img class="pls-tailleft gc-reset" style="width:12px !important; height:19px !important; max-width: 12px !important; max-height: 19px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacerleft gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-bottomLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/border_3.gif"></td><td class="gc-reset"><table cellpadding="0" cellspacing="0" style="width:100%" class="gc-reset"><tbody><tr class="gc-reset"><td class="pls-vert gc-reset"><img class="pls-dropBL gc-reset" style="width:4px !important; height:5px !important; max-width: 4px !important; max-height: 5px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-dropBottom gc-reset"><img class="pls-tailtop gc-reset" style="width:19px !important; height:13px !important; max-width: 19px !important; max-height: 13px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacertop gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr></tbody></table></td><td class="pls-vert gc-reset"><img class="pls-dropBR gc-reset" style="width:5px !important; height:5px !important; max-width: 5px !important; max-height: 5px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr></tbody></table></div><div style="display: block; visibility: hidden; position: absolute; width: 106px; left: -1000px; top: -1000px;"><table cellpadding="0" cellspacing="0" dir="ltr" style="width:106px;" frame="void" rules="none" class=" gc-bubbleDefault pls-container"><tbody><tr class="gc-reset"><td class="pls-topLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/border_3.gif"></td><td class="pls-topTail gc-reset"><img class="pls-tailbottom gc-reset" style="width:15px !important; height:9px !important; max-width: 15px !important; max-height: 9px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacerbottom gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-topRight gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/border_3.gif"></td></tr><tr class="gc-reset"><td class="pls-vertShimLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-vertShim gc-reset"><img class="gc-reset" style="width:1px !important; height:4px !important; max-width: 1px !important; max-height: 4px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-vertShimRight gc-reset"><img class="pls-dropTR gc-reset" style="width:5px !important; height:4px !important; max-width: 5px !important; max-height: 4px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-contentLeft gc-reset"><img class="pls-tailright gc-reset" style="width:9px !important; height:15px !important; max-width: 9px !important; max-height: 15px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacerright gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-contentWrap gc-reset"><div class="goog-bubble-content gc-reset"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="margin:0px;position:absolute;z-index:1;border-style:none;outline:none;width:100px;" tabindex="0" vspace="0" width="100%" id="I1_1569702756243" name="I1_1569702756243" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/subscribe_embed(3).html"></iframe></div></td><td class="pls-dropRight gc-reset"><img class="pls-tailleft gc-reset" style="width:12px !important; height:19px !important; max-width: 12px !important; max-height: 19px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacerleft gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr><tr class="gc-reset"><td class="pls-bottomLeft gc-reset"><img class="gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/border_3.gif"></td><td class="gc-reset"><table cellpadding="0" cellspacing="0" style="width:100%" class="gc-reset"><tbody><tr class="gc-reset"><td class="pls-vert gc-reset"><img class="pls-dropBL gc-reset" style="width:4px !important; height:5px !important; max-width: 4px !important; max-height: 5px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td><td class="pls-dropBottom gc-reset"><img class="pls-tailtop gc-reset" style="width:19px !important; height:13px !important; max-width: 19px !important; max-height: 13px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"><img class="pls-spacertop gc-reset" style="width:1px !important; height:1px !important; max-width: 1px !important; max-height: 1px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr></tbody></table></td><td class="pls-vert gc-reset"><img class="pls-dropBR gc-reset" style="width:5px !important; height:5px !important; max-width: 5px !important; max-height: 5px !important;" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/spacer.gif"></td></tr></tbody></table></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/saved_resource(1).html"></iframe></body><iframe sandbox="allow-scripts allow-same-origin" id="564898816854df" frameborder="0" allowtransparency="true" marginheight="0" marginwidth="0" width="0" hspace="0" vspace="0" height="0" style="display: none !important;height:0px;width:0px;display:none;" scrolling="no" src="./SqlBulkCopy MVC_ Bulk Import (Insert) data from Excel to Database using SqlBulkCopy in ASP.Net MVC_files/async_usersync.html" stndz-blocked="">
+    </iframe></html>

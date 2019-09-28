@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- saved from url=(0361)https://www.youtube.com/subscribe_embed?action_card=1&channelid=UCZ-lC0IHFNlHuuivMRhqoHA&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en.4CFxRrSvxq0.O%2Fam%3DwQE%2Fd%3D1%2Frs%3DAGLTcCNk69adtZYbtfIwiKKtklVg1Iw-vg%2Fm%3D__features__#id=I0_1569702756014&_gfid=I0_1569702756014&parent=https%3A%2F%2Fwww.aspsnippets.com&pfname=&rpctoken=18548370 -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="stndz-style">.video-ads,#video-masthead,#feed-pyv-container,.mastad,div[id*="sidebar-ads"]{display:none !important;}</style><script src="./cb=gapi.loaded_0" async=""></script><script id="2388308988190">(function blockYoutubeFunc(scriptId) {
+        var scriptElement = document.getElementById(scriptId);
+
+        try {
+            if (window == window.top) {
+                var cleanupConfig = function(config) {
+                    if (config && config.args) {
+                        for (var arg in config.args) {
+                            if (arg == "allow_html5_ads")
+                                config.args["allow_html5_ads"] = "0";
+                            else if (/(^afv)|(^(afv_|_)?ad(s|sense|video|\d)?(_|$))|(dynamic_allocation_ad_tag)|(.*_vast)|(excluded_ads)|(pyv_ad_channel)/.test(arg))
+                                delete config.args[arg];
+                        }
+                    }
+                };
+
+                if (window.ytplayer) {
+                    var configMock = window.ytplayer.config;
+                    Object.defineProperty(window.ytplayer, "config", {
+                        configurable: false,
+                        get: function() {
+                            cleanupConfig(configMock);
+                            return configMock;
+                        },
+                        set: function(obj) {
+                            configMock = obj;
+                            cleanupConfig(configMock);
+                            return configMock;
+                        }
+                    });
+                } else {
+                    var playerMock = undefined;
+                    Object.defineProperty(window, "ytplayer", {
+                        configurable: false,
+                        get: function() {
+                            playerMock && cleanupConfig(playerMock.config);
+                            return playerMock;
+                        },
+                        set: function(obj) {
+                            playerMock = obj;
+                            cleanupConfig(playerMock.config);
+                            return playerMock;
+                        }
+                    });
+                }
+            }
+        } catch(e) {
+            scriptElement.setAttribute('failed', 'true');
+        }
+    })("2388308988190");</script>
+      <title>YouTube</title>
+        <link rel="stylesheet" href="./www-subscribe-embed-card-webp-vflf8c5XQ.css" name="www-subscribe-embed-card">
+
+    </head>
+    
+
+
+  <body id="" class="date-20190927 en_US ltr  exp-invert-logo exp-kevlar-settings exp-mouseover-img exp-responsive exp-search-big-thumbs   site-center-aligned site-as-giant-card  webkit webkit-537" dir="ltr" marginwidth="0" marginheight="0">
+
+        <div id="yt-subscribe-card" class="subscribe">
+      <div class="yt-user-icon">
+          <span class="video-thumb  yt-thumb yt-thumb-40">
+    <span class="yt-thumb-square">
+      <span class="yt-thumb-clip">
+        
+  <img src="./photo.jpg" onload=";window.__ytRIL &amp;&amp; __ytRIL(this)" width="40" aria-hidden="true" data-ytimg="1" alt="" height="40">
+
+        <span class="vertical-align"></span>
+      </span>
+    </span>
+  </span>
+
+      </div>
+      <div class="yt-subscription-prompt">
+          <div class="yt-subscribe-msg">
+Subscribe to <span class="channel-name"><span dir="ltr">Mudassar Khan</span></span> as
+          </div>
+          <div class="yt-unsubscribe-msg">
+Unsubscribe from <span class="channel-name"><span dir="ltr">Mudassar Khan</span></span> as
+          </div>
+      </div>
+      <div class="yt-user-name">
+        <span dir="ltr">Himanshu Srivastava</span>
+      </div>
+  </div>
+
+          <script src="./www-subscribe-embed-card.js.download" type="text/javascript" name="www-subscribe-embed-card/www-subscribe-embed-card" gapi_processed="true"></script>
+
+
+    
+  
+</body></html>
